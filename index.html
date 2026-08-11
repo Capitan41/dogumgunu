@@ -41,38 +41,71 @@ button{
 
 <div id="kart">
 Henüz kart açılmadı.
+<h2>Koleksiyon</h2>
+
+<div id="sayac">
+0 / 15 kart bulundu
+</div>
+
+<div id="koleksiyon">
+
+</div>
 </div>
 
 <script>
 
 const kartlar = [
-    {
-        nadirlik:"⚪ Common",
-        yazi:"Komik bir fotoğraf buraya gelecek 😭"
-    },
-    {
-        nadirlik:"🔵 Rare",
-        yazi:"Eski bir anı buraya gelecek 😎"
-    },
-    {
-        nadirlik:"🟣 Epic",
-        yazi:"Unutulmaz bir olay 😭"
-    },
-    {
-        nadirlik:"🟡 Legendary",
-        yazi:"Özel doğum günü kartı 🎂"
-    }
-];
+    { nadirlik:"⚪ Common", yazi:"Kart 1" },
+    { nadirlik:"⚪ Common", yazi:"Kart 2" },
+    { nadirlik:"⚪ Common", yazi:"Kart 3" },
+    { nadirlik:"⚪ Common", yazi:"Kart 4" },
+    { nadirlik:"⚪ Common", yazi:"Kart 5" },
+    { nadirlik:"⚪ Common", yazi:"Kart 6" },
+    { nadirlik:"⚪ Common", yazi:"Kart 7" },
 
+    { nadirlik:"🔵 Rare", yazi:"Kart 8" },
+    { nadirlik:"🔵 Rare", yazi:"Kart 9" },
+    { nadirlik:"🔵 Rare", yazi:"Kart 10" },
+    { nadirlik:"🔵 Rare", yazi:"Kart 11" },
+
+    { nadirlik:"🟣 Epic", yazi:"Kart 12" },
+    { nadirlik:"🟣 Epic", yazi:"Kart 13" },
+
+    { nadirlik:"🟡 Legendary", yazi:"Kart 14" },
+
+    { nadirlik:"🌈 Mythic", yazi:"Kart 15" }
+];
+let kalanKartlar = [...kartlar];
+let bulunanKartlar = [];
+    
 function kartAc(){
 
-    let secilen =
-        kartlar[Math.floor(Math.random()*kartlar.length)];
+    if(kalanKartlar.length === 0){
+        document.getElementById("kart").innerHTML =
+        "<h2>🎂 Tebrikler!</h2><p>Tüm kartları topladın.</p>";
+        return;
+    }
 
-    document.getElementById("kart").innerHTML=
+    let index =
+    Math.floor(Math.random() * kalanKartlar.length);
+
+    let secilen = kalanKartlar[index];
+
+    kalanKartlar.splice(index,1);
+
+    bulunanKartlar.push(secilen);
+
+    document.getElementById("kart").innerHTML =
     "<h2>"+secilen.nadirlik+"</h2><p>"+secilen.yazi+"</p>";
-}
 
+    document.getElementById("koleksiyon").innerHTML =
+    bulunanKartlar.map(k =>
+    "<p>"+k.nadirlik+" - "+k.yazi+"</p>"
+    ).join("");
+
+    document.getElementById("sayac").innerHTML =
+    bulunanKartlar.length + " / 15 kart bulundu";
+}
 </script>
 
 </body>
