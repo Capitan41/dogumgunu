@@ -1,11 +1,79 @@
 <!DOCTYPE html>
-<html>
+<html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <title>İyi Ki Doğdun 🎂</title>
+<meta charset="UTF-8">
+<title>İyi Ki Doğdun 🎂</title>
+
+<style>
+body{
+    font-family:Arial,sans-serif;
+    text-align:center;
+    background:#f5f5f5;
+    padding:40px;
+}
+
+button{
+    padding:15px 30px;
+    font-size:20px;
+    cursor:pointer;
+}
+
+#kart{
+    margin-top:30px;
+    padding:20px;
+    background:white;
+    border-radius:15px;
+    max-width:500px;
+    margin-left:auto;
+    margin-right:auto;
+    box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+</style>
 </head>
+
 <body>
-    <h1>İyi Ki Doğdun 🎂</h1>
-    <p>Bu site senin için yapıldı.</p>
+
+<h1>🎂 İyi Ki Doğdun 🎂</h1>
+
+<p>Kart aç ve sürprizleri keşfet 😎</p>
+
+<button onclick="kartAc()">🎴 Kart Aç</button>
+
+<div id="kart">
+Henüz kart açılmadı.
+</div>
+
+<script>
+
+const kartlar = [
+    {
+        nadirlik:"⚪ Common",
+        yazi:"Komik bir fotoğraf buraya gelecek 😭"
+    },
+    {
+        nadirlik:"🔵 Rare",
+        yazi:"Eski bir anı buraya gelecek 😎"
+    },
+    {
+        nadirlik:"🟣 Epic",
+        yazi:"Unutulmaz bir olay 😭"
+    },
+    {
+        nadirlik:"🟡 Legendary",
+        yazi:"Özel doğum günü kartı 🎂"
+    }
+];
+
+function kartAc(){
+
+    let secilen =
+        kartlar[Math.floor(Math.random()*kartlar.length)];
+
+    document.getElementById("kart").innerHTML=
+    "<h2>"+secilen.nadirlik+"</h2><p>"+secilen.yazi+"</p>";
+}
+
+</script>
+
 </body>
 </html>
