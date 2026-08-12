@@ -22,11 +22,17 @@
 body {
     margin: 0;
     padding: 30px 15px;
+
     font-family: Arial, sans-serif;
     text-align: center;
 
     background:
-        radial-gradient(circle at top, #fff0f5, #f3e8ff 45%, #dbeafe);
+        radial-gradient(
+            circle at top,
+            #fff0f5,
+            #f3e8ff 45%,
+            #dbeafe
+        );
 
     min-height: 100vh;
     color: #222;
@@ -48,8 +54,7 @@ h1 {
    BUTON
 ========================= */
 
-#kartButonu {
-
+button {
     padding: 16px 35px;
 
     font-size: 20px;
@@ -68,12 +73,12 @@ h1 {
     transition: 0.15s;
 }
 
-#kartButonu:hover {
+button:hover {
     transform: translateY(-3px);
     box-shadow: 0 9px 0 #000;
 }
 
-#kartButonu:active {
+button:active {
     transform: translateY(5px);
     box-shadow: 0 2px 0 #000;
 }
@@ -162,6 +167,7 @@ h1 {
     margin-bottom: 5px;
 }
 
+
 .kart-yazi {
 
     font-size: 20px;
@@ -176,30 +182,65 @@ h1 {
 ========================= */
 
 .common {
+
     border: 5px solid #aaa;
-    background: linear-gradient(145deg, #ffffff, #eeeeee);
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #eeeeee
+        );
 }
+
 
 .rare {
+
     border: 5px solid #3498db;
-    background: linear-gradient(145deg, #ffffff, #dff1ff);
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #dff1ff
+        );
 }
+
 
 .epic {
+
     border: 5px solid #9b59b6;
-    background: linear-gradient(145deg, #ffffff, #f0dcff);
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f0dcff
+        );
 }
 
+
 .legendary {
+
     border: 5px solid #f1c40f;
-    background: linear-gradient(145deg, #fffef0, #ffe680);
+
+    background:
+        linear-gradient(
+            145deg,
+            #fffef0,
+            #ffe680
+        );
+
     box-shadow:
         0 0 20px rgba(241,196,15,0.6),
         0 15px 35px rgba(0,0,0,0.25);
 }
 
+
 .mythic {
+
     border: 5px solid #ff4ecd;
+
     background:
         linear-gradient(
             135deg,
@@ -213,8 +254,11 @@ h1 {
         0 0 50px rgba(120,100,255,0.3);
 }
 
+
 .secret {
+
     border: 5px solid #111;
+
     background:
         linear-gradient(
             135deg,
@@ -250,7 +294,8 @@ h1 {
 
     border-radius: 20px;
 
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    box-shadow:
+        0 4px 12px rgba(0,0,0,0.15);
 }
 
 
@@ -272,6 +317,7 @@ h1 {
     gap: 15px;
 }
 
+
 .koleksiyon-karti {
 
     background: white;
@@ -283,8 +329,10 @@ h1 {
     box-shadow:
         0 5px 15px rgba(0,0,0,0.15);
 
-    animation: koleksiyonGiris 0.4s ease;
+    animation:
+        koleksiyonGiris 0.4s ease;
 }
+
 
 @keyframes koleksiyonGiris {
 
@@ -299,6 +347,7 @@ h1 {
     }
 }
 
+
 .koleksiyon-karti img {
 
     width: 100%;
@@ -311,11 +360,13 @@ h1 {
     margin-top: 8px;
 }
 
+
 .koleksiyon-nadirlik {
 
     font-weight: bold;
     font-size: 15px;
 }
+
 
 .koleksiyon-yazi {
 
@@ -324,23 +375,150 @@ h1 {
 
 
 /* =========================
-   SON EKRAN
+   FİNAL MESAJLARI
 ========================= */
 
-.tamamlandi {
+.final-mesaj {
+
+    padding: 35px 25px;
 
     animation:
-        buyume 1s ease infinite alternate;
+        finalGiris 1s ease;
 }
 
-@keyframes buyume {
+
+@keyframes finalGiris {
+
+    0% {
+        opacity: 0;
+        transform: scale(0.6) translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+
+.final-mesaj h2 {
+
+    font-size: 30px;
+
+    margin: 20px 0;
+}
+
+
+.final-emoji {
+
+    font-size: 80px;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+   PASTA
+========================= */
+
+.pasta {
+
+    font-size: 120px;
+
+    margin: 10px;
+
+    animation:
+        pastaHareket 1.3s infinite alternate;
+}
+
+
+@keyframes pastaHareket {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-10px);
+    }
+}
+
+
+/* =========================
+   MUM
+========================= */
+
+.mum {
+
+    font-size: 70px;
+
+    margin: 5px;
+
+    transition: 0.5s;
+}
+
+
+.mum.sondu {
+
+    opacity: 0.35;
+
+    filter: grayscale(1);
+
+    transform:
+        scale(0.8);
+}
+
+
+/* =========================
+   DİLEK
+========================= */
+
+.dilek {
+
+    font-size: 24px;
+
+    animation:
+        dilekParilti 1.2s infinite alternate;
+}
+
+
+@keyframes dilekParilti {
 
     from {
         transform: scale(1);
     }
 
     to {
-        transform: scale(1.04);
+        transform: scale(1.06);
+    }
+}
+
+
+/* =========================
+   SON HEDİYE
+========================= */
+
+.son-hediye {
+
+    animation:
+        hediyeGiris 1.3s ease;
+}
+
+
+@keyframes hediyeGiris {
+
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+
+    60% {
+        transform: scale(1.08);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
     }
 }
 
@@ -362,14 +540,19 @@ h1 {
         konfetiDus 3s linear forwards;
 
     z-index: 9999;
+
+    pointer-events: none;
 }
+
 
 @keyframes konfetiDus {
 
     to {
+
         transform:
             translateY(110vh)
             rotate(720deg);
+
         opacity: 0;
     }
 }
@@ -397,6 +580,14 @@ h1 {
         max-height: 260px;
     }
 
+    .pasta {
+        font-size: 90px;
+    }
+
+    .final-mesaj h2 {
+        font-size: 25px;
+    }
+
 }
 
 </style>
@@ -407,15 +598,21 @@ h1 {
 <body>
 
 
-<h1>🎂 İyi Ki Doğdun ELA 🎂</h1>
+<h1>
+    🎂 İyi Ki Doğdun ELA 🎂
+</h1>
+
 
 <p class="subtitle">
-Kart aç ve sürprizleri keşfet 😎
+    Kart aç ve sürprizleri keşfet 😎
 </p>
 
 
-<button id="kartButonu" onclick="kartAc()">
-🎴 KART AÇ
+<button
+    id="kartButonu"
+    onclick="kartAc()"
+>
+    🎴 KART AÇ
 </button>
 
 
@@ -446,7 +643,7 @@ Kart aç ve sürprizleri keşfet 😎
 
 
 <h2>
-📚 KART KOLEKSİYONU
+    📚 KART KOLEKSİYONU
 </h2>
 
 
@@ -460,6 +657,8 @@ Kart aç ve sürprizleri keşfet 😎
 
 /* =========================
    KARTLAR
+   FOTOĞRAF İSİMLERİNE
+   DOKUNULMADI
 ========================= */
 
 const kartlar = [
@@ -595,14 +794,21 @@ let bulunanKartlar = [];
 
 function kartAc() {
 
+    /* Bütün kartlar bittiyse */
 
     if (kalanKartlar.length === 0) {
 
-        document.getElementById("kartAlani").innerHTML = `
+        document.getElementById(
+            "kartAlani"
+        ).innerHTML = `
 
-            <div class="kart mythic tamamlandi">
+            <div
+                class="kart mythic final-mesaj"
+            >
 
-                <h1>🏆</h1>
+                <div class="final-emoji">
+                    🏆
+                </div>
 
                 <h2>
                     TÜM KARTLAR TOPLANDI!
@@ -620,17 +826,35 @@ function kartAc() {
 
         `;
 
-        konfetiAt(80);
+
+        /* Kart açma butonunu gizle */
+
+        document.getElementById(
+            "kartButonu"
+        ).style.display = "none";
+
+
+        konfetiAt(100);
+
+
+        /* 3 saniye sonra ilk mesaj */
+
+        setTimeout(
+            final1,
+            3000
+        );
+
 
         return;
     }
 
 
-    /* Rastgele kart */
+    /* Rastgele kart seç */
 
     const index =
         Math.floor(
-            Math.random() * kalanKartlar.length
+            Math.random() *
+            kalanKartlar.length
         );
 
 
@@ -638,21 +862,30 @@ function kartAc() {
         kalanKartlar[index];
 
 
-    /* Kalanlardan çıkar */
+    /* Kartı kalanlardan çıkar */
 
-    kalanKartlar.splice(index, 1);
-
-
-    /* Koleksiyona ekle */
-
-    bulunanKartlar.push(secilen);
+    kalanKartlar.splice(
+        index,
+        1
+    );
 
 
-    /* Kartı göster */
+    /* Bulunan kartlara ekle */
 
-    document.getElementById("kartAlani").innerHTML = `
+    bulunanKartlar.push(
+        secilen
+    );
 
-        <div class="kart ${secilen.sinif}">
+
+    /* Kartı ekranda göster */
+
+    document.getElementById(
+        "kartAlani"
+    ).innerHTML = `
+
+        <div
+            class="kart ${secilen.sinif}"
+        >
 
             <div class="nadirlik">
                 ${secilen.nadirlik}
@@ -672,26 +905,37 @@ function kartAc() {
     `;
 
 
-    /* Sayacı güncelle */
+    /* Sayaç */
 
-    document.getElementById("sayac").innerHTML =
+    document.getElementById(
+        "sayac"
+    ).innerHTML =
 
         `${bulunanKartlar.length} / ${kartlar.length} kart bulundu`;
 
 
-    /* Koleksiyonu güncelle */
+    /* Koleksiyon */
 
-    document.getElementById("koleksiyon").innerHTML =
+    document.getElementById(
+        "koleksiyon"
+    ).innerHTML =
 
-        bulunanKartlar.map(kart => `
+        bulunanKartlar
+        .map(kart => `
 
-            <div class="koleksiyon-karti">
+            <div
+                class="koleksiyon-karti"
+            >
 
-                <div class="koleksiyon-nadirlik">
+                <div
+                    class="koleksiyon-nadirlik"
+                >
                     ${kart.nadirlik}
                 </div>
 
-                <div class="koleksiyon-yazi">
+                <div
+                    class="koleksiyon-yazi"
+                >
                     ${kart.yazi}
                 </div>
 
@@ -702,7 +946,8 @@ function kartAc() {
 
             </div>
 
-        `).join("");
+        `)
+        .join("");
 
 
     /* Konfeti */
@@ -710,7 +955,7 @@ function kartAc() {
     konfetiAt(25);
 
 
-    /* Özel nadirlik efekti */
+    /* Nadir kartlarda ekstra konfeti */
 
     if (
         secilen.sinif === "legendary" ||
@@ -725,12 +970,331 @@ function kartAc() {
 }
 
 
-/* =========================
+/* ==================================================
+   FİNAL 1
+   SEN BİR BALKABAĞI
+================================================== */
+
+function final1() {
+
+    document.getElementById(
+        "kartAlani"
+    ).innerHTML = `
+
+        <div
+            class="kart mythic final-mesaj"
+        >
+
+            <div class="final-emoji">
+                🎃
+            </div>
+
+            <h2>
+                Sen bir balkabağı.
+            </h2>
+
+        </div>
+
+    `;
+
+
+    setTimeout(
+        final2,
+        2500
+    );
+
+}
+
+
+/* ==================================================
+   FİNAL 2
+   TRABZON EKMEĞİ
+================================================== */
+
+function final2() {
+
+    document.getElementById(
+        "kartAlani"
+    ).innerHTML = `
+
+        <div
+            class="kart mythic final-mesaj"
+        >
+
+            <div class="final-emoji">
+                🍞
+            </div>
+
+            <h2>
+                Sen bir Trabzon ekmeği.
+            </h2>
+
+        </div>
+
+    `;
+
+
+    setTimeout(
+        final3,
+        2500
+    );
+
+}
+
+
+/* ==================================================
+   FİNAL 3
+   VEYA HERHANGİ BİR ŞEY
+================================================== */
+
+function final3() {
+
+    document.getElementById(
+        "kartAlani"
+    ).innerHTML = `
+
+        <div
+            class="kart mythic final-mesaj"
+        >
+
+            <div class="final-emoji">
+                🤨
+            </div>
+
+            <h2>
+                Veya herhangi bir şey.
+            </h2>
+
+        </div>
+
+    `;
+
+
+    setTimeout(
+        final4,
+        2500
+    );
+
+}
+
+
+/* ==================================================
+   FİNAL 4
+   KABUL ETTİK
+================================================== */
+
+function final4() {
+
+    document.getElementById(
+        "kartAlani"
+    ).innerHTML = `
+
+        <div
+            class="kart mythic final-mesaj"
+        >
+
+            <div class="final-emoji">
+                ❤️
+            </div>
+
+            <h2>
+                Biz seni olduğun gibi
+                kabul ettik.
+            </h2>
+
+        </div>
+
+    `;
+
+
+    setTimeout(
+        final5,
+        3000
+    );
+
+}
+
+
+/* ==================================================
+   FİNAL 5
+   DİLEK
+================================================== */
+
+function final5() {
+
+    document.getElementById(
+        "kartAlani"
+    ).innerHTML = `
+
+        <div
+            class="kart mythic final-mesaj"
+        >
+
+            <div class="final-emoji">
+                ✨
+            </div>
+
+            <h2 class="dilek">
+                Şimdi dilek tut.
+            </h2>
+
+        </div>
+
+    `;
+
+
+    setTimeout(
+        pastaGoster,
+        3000
+    );
+
+}
+
+
+/* ==================================================
+   PASTA + MUM
+================================================== */
+
+function pastaGoster() {
+
+    document.getElementById(
+        "kartAlani"
+    ).innerHTML = `
+
+        <div
+            class="kart legendary final-mesaj"
+        >
+
+            <div class="pasta">
+                🎂
+            </div>
+
+            <div
+                class="mum"
+                id="mum"
+            >
+                🕯️
+            </div>
+
+            <h2>
+                Dileğini tuttun mu?
+            </h2>
+
+            <p>
+                O zaman mumu üfle! 💨
+            </p>
+
+            <button
+                onclick="mumUfle()"
+            >
+                💨 MUMU ÜFLE
+            </button>
+
+        </div>
+
+    `;
+
+}
+
+
+/* ==================================================
+   MUMU ÜFLE
+================================================== */
+
+function mumUfle() {
+
+    const mum =
+        document.getElementById(
+            "mum"
+        );
+
+
+    if (!mum) {
+        return;
+    }
+
+
+    /* Mum söner */
+
+    mum.innerHTML = "🕯️💨";
+
+    mum.classList.add("sondu");
+
+
+    /* Konfeti */
+
+    konfetiAt(120);
+
+
+    /* Son mesaj */
+
+    setTimeout(() => {
+
+        document.getElementById(
+            "kartAlani"
+        ).innerHTML = `
+
+            <div
+                class="
+                    kart
+                    mythic
+                    final-mesaj
+                    son-hediye
+                "
+            >
+
+                <div class="final-emoji">
+                    🎁
+                </div>
+
+                <div class="pasta">
+                    🎂
+                </div>
+
+                <h1>
+                    🎉
+                </h1>
+
+                <h2>
+                    Nice Mutlu Senelere Ela!
+                </h2>
+
+                <p class="dilek">
+                    ✨ Dileğin gerçek olsun. ✨
+                </p>
+
+                <br>
+
+                <h3>
+                    🎁 Osman'ın sana
+                    doğum günü hediyesi buydu.
+                </h3>
+
+                <p>
+                    Umarım beğenmişsindir. ❤️
+                </p>
+
+                <h2>
+                    🎂💖🎉
+                </h2>
+
+            </div>
+
+        `;
+
+
+        konfetiAt(180);
+
+    }, 1500);
+
+}
+
+
+/* ==================================================
    KONFETİ
-========================= */
+================================================== */
 
 function konfetiAt(sayi) {
-
 
     const karakterler = [
         "🎉",
@@ -742,14 +1306,20 @@ function konfetiAt(sayi) {
     ];
 
 
-    for (let i = 0; i < sayi; i++) {
-
+    for (
+        let i = 0;
+        i < sayi;
+        i++
+    ) {
 
         const konfeti =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
 
 
-        konfeti.className = "konfeti";
+        konfeti.className =
+            "konfeti";
 
 
         konfeti.innerText =
@@ -766,14 +1336,20 @@ function konfetiAt(sayi) {
 
 
         konfeti.style.fontSize =
-            (Math.random() * 15 + 10) + "px";
+            (
+                Math.random() * 15 + 10
+            ) + "px";
 
 
         konfeti.style.animationDuration =
-            (Math.random() * 2 + 2) + "s";
+            (
+                Math.random() * 2 + 2
+            ) + "s";
 
 
-        document.body.appendChild(konfeti);
+        document.body.appendChild(
+            konfeti
+        );
 
 
         setTimeout(() => {
@@ -788,9 +1364,6 @@ function konfetiAt(sayi) {
 
 </script>
 
-
 </body>
 
 </html>
-```
-
