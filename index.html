@@ -2,116 +2,287 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>İyi Ki Doğdun 🎂</title>
 
 <style>
-body{
-    font-family:Arial,sans-serif;
-    text-align:center;
-    background:#f5f5f5;
-    padding:40px;
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: #f5f5f5;
+    padding: 40px;
+    margin: 0;
 }
 
-button{
-    padding:15px 30px;
-    font-size:20px;
-    cursor:pointer;
+h1 {
+    margin-bottom: 10px;
 }
 
-#kart{
-    margin-top:30px;
-    padding:20px;
-    background:white;
-    border-radius:15px;
-    max-width:500px;
-    margin-left:auto;
-    margin-right:auto;
-    box-shadow:0 0 10px rgba(0,0,0,0.2);
+button {
+    padding: 15px 30px;
+    font-size: 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 12px;
+    background: #222;
+    color: white;
 }
+
+button:hover {
+    transform: scale(1.05);
+}
+
+#kart {
+    margin: 30px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    max-width: 500px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    min-height: 100px;
+}
+
+#kart img {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 12px;
+    margin-top: 15px;
+}
+
+#sayac {
+    font-size: 18px;
+    margin: 15px;
+    font-weight: bold;
+}
+
+#koleksiyon {
+    max-width: 600px;
+    margin: auto;
+}
+
+.koleksiyon-karti {
+    background: white;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 12px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.15);
+}
+
+.koleksiyon-karti img {
+    width: 150px;
+    max-height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
 </style>
 </head>
 
 <body>
 
-<h1>🎂 İyi Ki Doğdun ELA🎂</h1>
+<h1>🎂 İyi Ki Doğdun ELA 🎂</h1>
 
 <p>Kart aç ve sürprizleri keşfet 😎</p>
 
 <button onclick="kartAc()">🎴 Kart Aç</button>
 
 <div id="kart">
-Henüz kart açılmadı.
+    <h2>🎴</h2>
+    <p>Henüz kart açılmadı.</p>
 </div>
 
-<h2>Koleksiyon</h2>
+<h2>📚 Koleksiyon</h2>
 
 <div id="sayac">
-0 / 16 kart bulundu
+    0 / 16 kart bulundu
 </div>
 
 <div id="koleksiyon">
 </div>
 
-</div>
-</div>
 
 <script>
 
 const kartlar = [
 
-    { nadirlik:"⚪ Common", yazi:"Ozan kartı 😭", resim:"!!OZAN!!.jpeg" },
-    { nadirlik:"⚪ Common", yazi:"Sakin ol 😎", resim:"sakin.jpeg" },
-    { nadirlik:"⚪ Common", yazi:"Kaftan momenti", resim:"kaftan.jpeg" },
-    { nadirlik:"⚪ Common", yazi:"Otobüs anısı", resim:"otobus.jpeg" },
-    { nadirlik:"⚪ Common", yazi:"Denizdeki topu izleme", resim:"DENİZDEKİ TOPU İZLEME.jpeg" },
-    { nadirlik:"⚪ Common", yazi:"Kızma pls 🙏", resim:"KIZMA PLS.jpeg" },
-    { nadirlik:"⚪ Common", yazi:"Anlaşılabilir.", resim:"ANLAŞILABİLİR.jpeg" },
+    {
+        nadirlik: "⚪ Common",
+        yazi: "Ozan kartı 😭",
+        resim: "!!OZAN!!.jpeg"
+    },
 
-    { nadirlik:"🔵 Rare", yazi:"GPT'nin önerdiği cosplay 💀", resim:"GPT NİN ÖNERDİĞİ COSPLAY.jpeg" },
-    { nadirlik:"🔵 Rare", yazi:"Bilişim fareleri", resim:"bilişim fareleri.jpeg" },
-    { nadirlik:"🔵 Rare", yazi:"Pembe çantalı Osman", resim:"PEMBE ÇANTALI OSMAN.jpeg" },
-    { nadirlik:"🔵 Rare", yazi:"Büyük adam", resim:"BÜYÜK ADAM.jpeg" },
+    {
+        nadirlik: "⚪ Common",
+        yazi: "Sakin ol 😎",
+        resim: "sakin.jpeg"
+    },
 
-    { nadirlik:"🟣 Epic", yazi:"Dilfler Ela için", resim:"DİLFLER.jpeg" },
-    { nadirlik:"🟣 Epic", yazi:"Kerem ifşa", resim:"KEREM İFŞA.jpeg" },
+    {
+        nadirlik: "⚪ Common",
+        yazi: "Kaftan momenti",
+        resim: "kaftan.jpeg"
+    },
 
-    { nadirlik:"🟡 Legendary", yazi:"Osman bagaja tıkılma", resim:"OSMAN BAGAJA TIKILMA.jpeg" },
+    {
+        nadirlik: "⚪ Common",
+        yazi: "Otobüs anısı",
+        resim: "otobus.jpeg"
+    },
 
-    { nadirlik:"🌈 Mythic", yazi:"Osman doğum günü 🎂", resim:"OSMAN DOĞUM GÜNÜ.jpeg" },
+    {
+        nadirlik: "⚪ Common",
+        yazi: "Denizdeki topu izleme",
+        resim: "DENİZDEKİ TOPU İZLEME.jpeg"
+    },
 
-    { nadirlik:"🌈 Secret", yazi:"Habere çıkma", resim:"HABERE ÇIKIİ.jpeg" }
+    {
+        nadirlik: "⚪ Common",
+        yazi: "Kızma pls 🙏",
+        resim: "KIZMA PLS.jpeg"
+    },
+
+    {
+        nadirlik: "⚪ Common",
+        yazi: "Anlaşılabilir.",
+        resim: "ANLAŞILABİLİR.jpeg"
+    },
+
+    {
+        nadirlik: "🔵 Rare",
+        yazi: "GPT'nin önerdiği cosplay 💀",
+        resim: "GPT NİN ÖNERDİĞİ COSPLAY.jpeg"
+    },
+
+    {
+        nadirlik: "🔵 Rare",
+        yazi: "Bilişim fareleri",
+        resim: "bilişim fareleri.jpeg"
+    },
+
+    {
+        nadirlik: "🔵 Rare",
+        yazi: "Pembe çantalı Osman",
+        resim: "PEMBE ÇANTALI OSMAN.jpeg"
+    },
+
+    {
+        nadirlik: "🔵 Rare",
+        yazi: "Büyük adam",
+        resim: "BÜYÜK ADAM.jpeg"
+    },
+
+    {
+        nadirlik: "🟣 Epic",
+        yazi: "Dilfler Ela için",
+        resim: "DİLFLER.jpeg"
+    },
+
+    {
+        nadirlik: "🟣 Epic",
+        yazi: "Kerem ifşa",
+        resim: "KEREM İFŞA.jpeg"
+    },
+
+    {
+        nadirlik: "🟡 Legendary",
+        yazi: "Osman bagaja tıkılma",
+        resim: "OSMAN BAGAJA TIKILMA.jpeg"
+    },
+
+    {
+        nadirlik: "🌈 Mythic",
+        yazi: "Osman doğum günü 🎂",
+        resim: "OSMAN DOĞUM GÜNÜ.jpeg"
+    },
+
+    {
+        nadirlik: "🌈 Secret",
+        yazi: "Habere çıkma",
+        resim: "HABERE ÇIKIİ.jpeg"
+    }
+
 ];
-let kalanKartlar = [...kartlar];
-let bulunanKartlar = [];
-    
-function kartAc(){
 
-    if(kalanKartlar.length === 0){
-        document.getElementById("kart").innerHTML =
-        "<h2>🎂 Tebrikler!</h2><p>Tüm kartları topladın.</p>";
+
+let kalanKartlar = [...kartlar];
+
+let bulunanKartlar = [];
+
+
+function kartAc() {
+
+    // Tüm kartlar bittiyse
+    if (kalanKartlar.length === 0) {
+
+        document.getElementById("kart").innerHTML = `
+            <h2>🎂 Tebrikler!</h2>
+            <p>Tüm kartları topladın!</p>
+            <p>16 / 16 🏆</p>
+        `;
+
         return;
     }
 
-    let index =
-    Math.floor(Math.random() * kalanKartlar.length);
 
-    let secilen = kalanKartlar[index];
+    // Rastgele kart seç
+    const index = Math.floor(
+        Math.random() * kalanKartlar.length
+    );
 
-    kalanKartlar.splice(index,1);
 
+    const secilen = kalanKartlar[index];
+
+
+    // Kartı kalanlardan çıkar
+    kalanKartlar.splice(index, 1);
+
+
+    // Koleksiyona ekle
     bulunanKartlar.push(secilen);
 
-    document.getElementById("kart").innerHTML =
-    "<h2>"+secilen.nadirlik+"</h2><p>"+secilen.yazi+"</p>";
 
+    // Açılan kartı göster
+    document.getElementById("kart").innerHTML = `
+
+        <h2>${secilen.nadirlik}</h2>
+
+        <h3>${secilen.yazi}</h3>
+
+        <img src="${secilen.resim}"
+             alt="${secilen.yazi}">
+
+    `;
+
+
+    // Koleksiyonu güncelle
     document.getElementById("koleksiyon").innerHTML =
-    bulunanKartlar.map(k =>
-    "<p>"+k.nadirlik+" - "+k.yazi+"</p>"
-    ).join("");
 
+        bulunanKartlar.map(kart => `
+
+            <div class="koleksiyon-karti">
+
+                <strong>${kart.nadirlik}</strong>
+
+                <p>${kart.yazi}</p>
+
+                <img src="${kart.resim}"
+                     alt="${kart.yazi}">
+
+            </div>
+
+        `).join("");
+
+
+    // Sayaç
     document.getElementById("sayac").innerHTML =
-    bulunanKartlar.length + " / 15 kart bulundu";
+
+        `${bulunanKartlar.length} / ${kartlar.length} kart bulundu`;
+
 }
+
 </script>
 
 </body>
