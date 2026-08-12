@@ -83,6 +83,12 @@ button:active {
     box-shadow: 0 2px 0 #000;
 }
 
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
 
 /* =========================
    KART ALANI
@@ -174,6 +180,51 @@ button:active {
     font-weight: bold;
 
     margin: 10px;
+}
+
+
+/* =========================
+   KART AÇILIŞ ANİMASYONU
+========================= */
+
+.aciliyor {
+
+    animation:
+        kartSalla 0.12s infinite alternate;
+
+}
+
+@keyframes kartSalla {
+
+    from {
+        transform: rotate(-3deg) scale(0.95);
+    }
+
+    to {
+        transform: rotate(3deg) scale(1.05);
+    }
+
+}
+
+
+.aciliyor-emoji {
+
+    font-size: 100px;
+
+    animation:
+        don 1s linear infinite;
+}
+
+@keyframes don {
+
+    from {
+        transform: rotateY(0deg);
+    }
+
+    to {
+        transform: rotateY(360deg);
+    }
+
 }
 
 
@@ -375,12 +426,10 @@ button:active {
 
 
 /* =========================
-   FİNAL MESAJLARI
+   FİNAL
 ========================= */
 
 .final-mesaj {
-
-    padding: 35px 25px;
 
     animation:
         finalGiris 1s ease;
@@ -401,14 +450,6 @@ button:active {
 }
 
 
-.final-mesaj h2 {
-
-    font-size: 30px;
-
-    margin: 20px 0;
-}
-
-
 .final-emoji {
 
     font-size: 80px;
@@ -416,10 +457,6 @@ button:active {
     margin-bottom: 15px;
 }
 
-
-/* =========================
-   PASTA
-========================= */
 
 .pasta {
 
@@ -444,10 +481,6 @@ button:active {
 }
 
 
-/* =========================
-   MUM
-========================= */
-
 .mum {
 
     font-size: 70px;
@@ -464,14 +497,9 @@ button:active {
 
     filter: grayscale(1);
 
-    transform:
-        scale(0.8);
+    transform: scale(0.8);
 }
 
-
-/* =========================
-   DİLEK
-========================= */
 
 .dilek {
 
@@ -495,44 +523,12 @@ button:active {
 
 
 /* =========================
-   SON HEDİYE
-========================= */
-
-.son-hediye {
-
-    animation:
-        hediyeGiris 1.3s ease;
-}
-
-
-@keyframes hediyeGiris {
-
-    0% {
-        opacity: 0;
-        transform: scale(0.3);
-    }
-
-    60% {
-        transform: scale(1.08);
-    }
-
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-
-/* =========================
    KONFETİ
 ========================= */
 
 .konfeti {
 
     position: fixed;
-
-    width: 10px;
-    height: 10px;
 
     top: -20px;
 
@@ -655,11 +651,37 @@ button:active {
 <script>
 
 
-/* =========================
+/* ==================================================
+   SESLER
+================================================== */
+
+const sesler = {
+
+    common:
+        new Audio("common.mp3"),
+
+    rare:
+        new Audio("rare.mp3"),
+
+    epic:
+        new Audio("epic.mp3"),
+
+    legendary:
+        new Audio("legendary.mp3"),
+
+    mythic:
+        new Audio("mythic.mp3"),
+
+    secret:
+        new Audio("secret.mp3")
+
+};
+
+
+/* ==================================================
    KARTLAR
-   FOTOĞRAF İSİMLERİNE
-   DOKUNULMADI
-========================= */
+   FOTOĞRAF İSİMLERİNE DOKUNULMADI
+================================================== */
 
 const kartlar = [
 
@@ -787,66 +809,33 @@ let kalanKartlar = [...kartlar];
 
 let bulunanKartlar = [];
 
+let kartAciliyor = false;
 
-/* =========================
+
+/* ==================================================
    KART AÇ
-========================= */
+================================================== */
 
 function kartAc() {
 
-    /* Bütün kartlar bittiyse */
+    if (kartAciliyor) {
+        return;
+    }
+
 
     if (kalanKartlar.length === 0) {
 
-        document.getElementById(
-            "kartAlani"
-        ).innerHTML = `
-
-            <div
-                class="kart mythic final-mesaj"
-            >
-
-                <div class="final-emoji">
-                    🏆
-                </div>
-
-                <h2>
-                    TÜM KARTLAR TOPLANDI!
-                </h2>
-
-                <p>
-                    🎂 Tebrikler Ela! 🎂
-                </p>
-
-                <h2>
-                    16 / 16
-                </h2>
-
-            </div>
-
-        `;
-
-
-        /* Kart açma butonunu gizle */
-
-        document.getElementById(
-            "kartButonu"
-        ).style.display = "none";
-
-
-        konfetiAt(100);
-
-
-        /* 3 saniye sonra ilk mesaj */
-
-        setTimeout(
-            final1,
-            3000
-        );
-
-
         return;
+
     }
+
+
+    kartAciliyor = true;
+
+
+    document.getElementById(
+        "kartButonu"
+    ).disabled = true;
 
 
     /* Rastgele kart seç */
@@ -862,7 +851,8 @@ function kartAc() {
         kalanKartlar[index];
 
 
-    /* Kartı kalanlardan çıkar */
+    /* Kartı daha şimdiden
+       listeden çıkar */
 
     kalanKartlar.splice(
         index,
@@ -870,109 +860,252 @@ function kartAc() {
     );
 
 
-    /* Bulunan kartlara ekle */
-
-    bulunanKartlar.push(
-        secilen
-    );
-
-
-    /* Kartı ekranda göster */
+    /* ==========================================
+       KART AÇILIYOR EKRANI
+    ========================================== */
 
     document.getElementById(
         "kartAlani"
     ).innerHTML = `
 
-        <div
-            class="kart ${secilen.sinif}"
-        >
+        <div class="kart ${secilen.sinif} aciliyor">
 
-            <div class="nadirlik">
-                ${secilen.nadirlik}
+            <div class="aciliyor-emoji">
+                🎴
             </div>
 
-            <div class="kart-yazi">
-                ${secilen.yazi}
-            </div>
+            <h2>
+                Kart açılıyor...
+            </h2>
 
-            <img
-                src="${secilen.resim}"
-                alt="${secilen.yazi}"
-            >
+            <p>
+                Acaba ne çıkacak? 👀
+            </p>
 
         </div>
 
     `;
 
 
-    /* Sayaç */
+    /* ==========================================
+       GERİLİM SÜRESİ
+    ========================================== */
 
-    document.getElementById(
-        "sayac"
-    ).innerHTML =
-
-        `${bulunanKartlar.length} / ${kartlar.length} kart bulundu`;
+    setTimeout(() => {
 
 
-    /* Koleksiyon */
+        /* Kartı koleksiyona ekle */
 
-    document.getElementById(
-        "koleksiyon"
-    ).innerHTML =
+        bulunanKartlar.push(
+            secilen
+        );
 
-        bulunanKartlar
-        .map(kart => `
+
+        /* ======================================
+           SES
+        ====================================== */
+
+        const ses =
+            sesler[secilen.sinif];
+
+
+        if (ses) {
+
+            ses.currentTime = 0;
+
+            ses.play().catch(
+                () => {}
+            );
+
+        }
+
+
+        /* ======================================
+           GERÇEK KART
+        ====================================== */
+
+        document.getElementById(
+            "kartAlani"
+        ).innerHTML = `
 
             <div
-                class="koleksiyon-karti"
+                class="kart ${secilen.sinif}"
             >
 
-                <div
-                    class="koleksiyon-nadirlik"
-                >
-                    ${kart.nadirlik}
+                <div class="nadirlik">
+                    ${secilen.nadirlik}
                 </div>
 
-                <div
-                    class="koleksiyon-yazi"
-                >
-                    ${kart.yazi}
+                <div class="kart-yazi">
+                    ${secilen.yazi}
                 </div>
 
                 <img
-                    src="${kart.resim}"
-                    alt="${kart.yazi}"
+                    src="${secilen.resim}"
+                    alt="${secilen.yazi}"
                 >
 
             </div>
 
-        `)
-        .join("");
+        `;
 
 
-    /* Konfeti */
+        /* ======================================
+           SAYAC
+        ====================================== */
 
-    konfetiAt(25);
+        document.getElementById(
+            "sayac"
+        ).innerHTML =
+
+            `${bulunanKartlar.length} / ${kartlar.length} kart bulundu`;
 
 
-    /* Nadir kartlarda ekstra konfeti */
+        /* ======================================
+           KOLEKSİYON
+        ====================================== */
 
-    if (
-        secilen.sinif === "legendary" ||
-        secilen.sinif === "mythic" ||
-        secilen.sinif === "secret"
-    ) {
+        document.getElementById(
+            "koleksiyon"
+        ).innerHTML =
 
-        konfetiAt(60);
+            bulunanKartlar
+            .map(kart => `
 
-    }
+                <div
+                    class="koleksiyon-karti"
+                >
+
+                    <div
+                        class="koleksiyon-nadirlik"
+                    >
+                        ${kart.nadirlik}
+                    </div>
+
+                    <div
+                        class="koleksiyon-yazi"
+                    >
+                        ${kart.yazi}
+                    </div>
+
+                    <img
+                        src="${kart.resim}"
+                        alt="${kart.yazi}"
+                    >
+
+                </div>
+
+            `)
+            .join("");
+
+
+        /* ======================================
+           KONFETİ
+        ====================================== */
+
+        konfetiAt(25);
+
+
+        if (
+            secilen.sinif === "legendary" ||
+            secilen.sinif === "mythic" ||
+            secilen.sinif === "secret"
+        ) {
+
+            konfetiAt(70);
+
+        }
+
+
+        kartAciliyor = false;
+
+
+        /* Eğer son kartsa */
+
+        if (
+            bulunanKartlar.length ===
+            kartlar.length
+        ) {
+
+            document.getElementById(
+                "kartButonu"
+            ).disabled = true;
+
+
+            setTimeout(
+                tumKartlarBitti,
+                1800
+            );
+
+        } else {
+
+            document.getElementById(
+                "kartButonu"
+            ).disabled = false;
+
+        }
+
+
+    }, 1800);
+
+}
+
+
+/* ==================================================
+   TÜM KARTLAR BİTTİ
+================================================== */
+
+function tumKartlarBitti() {
+
+    document.getElementById(
+        "kartAlani"
+    ).innerHTML = `
+
+        <div
+            class="
+                kart
+                mythic
+                final-mesaj
+            "
+        >
+
+            <div class="final-emoji">
+                🏆
+            </div>
+
+            <h2>
+                TÜM KARTLAR TOPLANDI!
+            </h2>
+
+            <p>
+                🎂 Tebrikler Ela! 🎂
+            </p>
+
+            <h2>
+                16 / 16
+            </h2>
+
+        </div>
+
+    `;
+
+
+    konfetiAt(120);
+
+
+    /* 3 saniye sonra
+       ilk final mesajı */
+
+    setTimeout(
+        final1,
+        3500
+    );
 
 }
 
 
 /* ==================================================
    FİNAL 1
-   SEN BİR BALKABAĞI
 ================================================== */
 
 function final1() {
@@ -982,7 +1115,11 @@ function final1() {
     ).innerHTML = `
 
         <div
-            class="kart mythic final-mesaj"
+            class="
+                kart
+                mythic
+                final-mesaj
+            "
         >
 
             <div class="final-emoji">
@@ -1000,7 +1137,7 @@ function final1() {
 
     setTimeout(
         final2,
-        2500
+        2600
     );
 
 }
@@ -1008,7 +1145,6 @@ function final1() {
 
 /* ==================================================
    FİNAL 2
-   TRABZON EKMEĞİ
 ================================================== */
 
 function final2() {
@@ -1018,7 +1154,11 @@ function final2() {
     ).innerHTML = `
 
         <div
-            class="kart mythic final-mesaj"
+            class="
+                kart
+                mythic
+                final-mesaj
+            "
         >
 
             <div class="final-emoji">
@@ -1036,7 +1176,7 @@ function final2() {
 
     setTimeout(
         final3,
-        2500
+        2600
     );
 
 }
@@ -1044,7 +1184,6 @@ function final2() {
 
 /* ==================================================
    FİNAL 3
-   VEYA HERHANGİ BİR ŞEY
 ================================================== */
 
 function final3() {
@@ -1054,7 +1193,11 @@ function final3() {
     ).innerHTML = `
 
         <div
-            class="kart mythic final-mesaj"
+            class="
+                kart
+                mythic
+                final-mesaj
+            "
         >
 
             <div class="final-emoji">
@@ -1072,7 +1215,7 @@ function final3() {
 
     setTimeout(
         final4,
-        2500
+        2600
     );
 
 }
@@ -1080,7 +1223,6 @@ function final3() {
 
 /* ==================================================
    FİNAL 4
-   KABUL ETTİK
 ================================================== */
 
 function final4() {
@@ -1090,7 +1232,11 @@ function final4() {
     ).innerHTML = `
 
         <div
-            class="kart mythic final-mesaj"
+            class="
+                kart
+                mythic
+                final-mesaj
+            "
         >
 
             <div class="final-emoji">
@@ -1109,7 +1255,7 @@ function final4() {
 
     setTimeout(
         final5,
-        3000
+        3200
     );
 
 }
@@ -1117,7 +1263,6 @@ function final4() {
 
 /* ==================================================
    FİNAL 5
-   DİLEK
 ================================================== */
 
 function final5() {
@@ -1127,7 +1272,11 @@ function final5() {
     ).innerHTML = `
 
         <div
-            class="kart mythic final-mesaj"
+            class="
+                kart
+                mythic
+                final-mesaj
+            "
         >
 
             <div class="final-emoji">
@@ -1145,7 +1294,7 @@ function final5() {
 
     setTimeout(
         pastaGoster,
-        3000
+        3200
     );
 
 }
@@ -1162,7 +1311,11 @@ function pastaGoster() {
     ).innerHTML = `
 
         <div
-            class="kart legendary final-mesaj"
+            class="
+                kart
+                legendary
+                final-mesaj
+            "
         >
 
             <div class="pasta">
@@ -1214,19 +1367,17 @@ function mumUfle() {
     }
 
 
-    /* Mum söner */
-
-    mum.innerHTML = "🕯️💨";
-
-    mum.classList.add("sondu");
+    mum.innerHTML =
+        "🕯️💨";
 
 
-    /* Konfeti */
+    mum.classList.add(
+        "sondu"
+    );
 
-    konfetiAt(120);
 
+    konfetiAt(150);
 
-    /* Son mesaj */
 
     setTimeout(() => {
 
@@ -1239,7 +1390,6 @@ function mumUfle() {
                     kart
                     mythic
                     final-mesaj
-                    son-hediye
                 "
             >
 
@@ -1266,7 +1416,7 @@ function mumUfle() {
                 <br>
 
                 <h3>
-                    🎁 Osman'ın sana
+                    🎁 Osmanın sana
                     doğum günü hediyesi buydu.
                 </h3>
 
@@ -1274,9 +1424,13 @@ function mumUfle() {
                     Umarım beğenmişsindir. ❤️
                 </p>
 
-                <h2>
-                    🎂💖🎉
-                </h2>
+                <br>
+
+                <button
+                    onclick="buKadarKisaDegil()"
+                >
+                    👀 Bu kadar kısa değil...
+                </button>
 
             </div>
 
@@ -1286,6 +1440,46 @@ function mumUfle() {
         konfetiAt(180);
 
     }, 1500);
+
+}
+
+
+/* ==================================================
+   BU KADAR KISA DEĞİL
+================================================== */
+
+function buKadarKisaDegil() {
+
+    konfetiAt(60);
+
+
+    document.getElementById(
+        "kartAlani"
+    ).innerHTML = `
+
+        <div
+            class="
+                kart
+                mythic
+                final-mesaj
+            "
+        >
+
+            <div class="final-emoji">
+                👀
+            </div>
+
+            <h1>
+                Bu kadar kısa değil...
+            </h1>
+
+            <p>
+                😎
+            </p>
+
+        </div>
+
+    `;
 
 }
 
