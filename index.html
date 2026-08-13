@@ -1452,7 +1452,6 @@ function buKadarKisaDegil() {
 
     konfetiAt(60);
 
-
     document.getElementById(
         "kartAlani"
     ).innerHTML = `
@@ -1466,96 +1465,59 @@ function buKadarKisaDegil() {
         >
 
             <div class="final-emoji">
-                👀
+                🎁
             </div>
 
-            <h1>
-                Bu kadar kısa değil...
-            </h1>
+            <h2>
+                Şimdi benden bir şey iste.
+            </h2>
 
-            <p>
-                😎
+            <p style="font-size: 20px; line-height: 1.6;">
+                Yapacağım.
             </p>
+
+            <p style="font-size: 20px; line-height: 1.6;">
+                Maske yapmamı bile isteyebilirsin. 😭
+            </p>
+
+            <p style="font-size: 18px; margin-top: 25px;">
+                Bunu neden söyledim?
+            </p>
+
+            <h3>
+                Neyse...
+            </h3>
+
+            <p style="font-size: 20px; line-height: 1.6;">
+                Ne istediğini WhatsApp'tan yaz
+                ve elimden geldiğince yapmaya çalışayım.
+            </p>
+
+            <p style="font-size: 20px; line-height: 1.6;">
+                Ve bunun için teşekkür et.
+            </p>
+
+            <p style="font-size: 20px; line-height: 1.6;">
+                Teşekkür edersen mutlu olurum. ❤️
+            </p>
+
+            <br>
+
+            <h2>
+                Yeniden iyi ki doğdun Ela. 🎂
+            </h2>
+
+            <div class="final-emoji">
+                💖
+            </div>
 
         </div>
 
     `;
 
+    konfetiAt(100);
 }
-
-
-/* ==================================================
-   KONFETİ
-================================================== */
-
-function konfetiAt(sayi) {
-
-    const karakterler = [
-        "🎉",
-        "🎊",
-        "✨",
-        "⭐",
-        "💖",
-        "🎂"
-    ];
-
-
-    for (
-        let i = 0;
-        i < sayi;
-        i++
-    ) {
-
-        const konfeti =
-            document.createElement(
-                "div"
-            );
-
-
-        konfeti.className =
-            "konfeti";
-
-
-        konfeti.innerText =
-            karakterler[
-                Math.floor(
-                    Math.random() *
-                    karakterler.length
-                )
-            ];
-
-
-        konfeti.style.left =
-            Math.random() * 100 + "vw";
-
-
-        konfeti.style.fontSize =
-            (
-                Math.random() * 15 + 10
-            ) + "px";
-
-
-        konfeti.style.animationDuration =
-            (
-                Math.random() * 2 + 2
-            ) + "s";
-
-
-        document.body.appendChild(
-            konfeti
-        );
-
-
-        setTimeout(() => {
-
-            konfeti.remove();
-
-        }, 4000);
-
-    }
-
-}
-
+   
 </script>
 
 </body>
