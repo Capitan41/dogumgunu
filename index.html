@@ -1,5 +1,3 @@
-
-```html
 <!DOCTYPE html>
 <html lang="tr">
 
@@ -519,6 +517,37 @@ button:disabled {
 
 
 /* ==================================================
+   VİDEO
+================================================== */
+
+.son-video {
+    width: 100%;
+
+    max-height: 600px;
+
+    border-radius: 18px;
+
+    display: block;
+
+    background: black;
+}
+
+
+/* ==================================================
+   SON MESAJ
+================================================== */
+
+.instagram-mesaj h2 {
+    line-height: 1.5;
+}
+
+.instagram-mesaj p {
+    font-size: 22px;
+    line-height: 1.6;
+}
+
+
+/* ==================================================
    MOBİL
 ================================================== */
 
@@ -547,6 +576,7 @@ button:disabled {
     .final-mesaj h2 {
         font-size: 25px;
     }
+
 }
 
 </style>
@@ -612,17 +642,31 @@ button:disabled {
 
 <script>
 
+
 /* ==================================================
    SESLER
 ================================================== */
 
 const sesler = {
-    common: new Audio("common.mp3"),
-    rare: new Audio("rare.mp3"),
-    epic: new Audio("epic.mp3"),
-    legendary: new Audio("legendary.mp3"),
-    mythic: new Audio("mythic.mp3"),
-    secret: new Audio("secret.mp3")
+
+    common:
+        new Audio("common.mp3"),
+
+    rare:
+        new Audio("rare.mp3"),
+
+    epic:
+        new Audio("epic.mp3"),
+
+    legendary:
+        new Audio("legendary.mp3"),
+
+    mythic:
+        new Audio("mythic.mp3"),
+
+    secret:
+        new Audio("secret.mp3")
+
 };
 
 
@@ -748,21 +792,21 @@ const kartlar = [
 ];
 
 
-/* ==================================================
-   DEĞİŞKENLER
-================================================== */
-
 let kalanKartlar = [...kartlar];
+
 let bulunanKartlar = [];
+
 let kartAciliyor = false;
 
 
 /* ==================================================
-   GÜVENLİ RESİM YOLU
+   DOSYA YOLU
 ================================================== */
 
-function resimYolu(dosyaAdi) {
+function dosyaYolu(dosyaAdi) {
+
     return encodeURI(dosyaAdi);
+
 }
 
 
@@ -772,7 +816,8 @@ function resimYolu(dosyaAdi) {
 
 function sesCal(sinif) {
 
-    const ses = sesler[sinif];
+    const ses =
+        sesler[sinif];
 
     if (!ses) {
         return;
@@ -781,15 +826,21 @@ function sesCal(sinif) {
     try {
 
         ses.pause();
+
         ses.currentTime = 0;
 
-        const sonuc = ses.play();
+        const oynatma =
+            ses.play();
 
         if (
-            sonuc &&
-            typeof sonuc.catch === "function"
+            oynatma &&
+            typeof oynatma.catch === "function"
         ) {
-            sonuc.catch(() => {});
+
+            oynatma.catch(
+                () => {}
+            );
+
         }
 
     } catch (hata) {
@@ -800,104 +851,12 @@ function sesCal(sinif) {
         );
 
     }
-}
-
-
-/* ==================================================
-   KOLEKSİYONU GÜNCELLE
-================================================== */
-
-function koleksiyonuGuncelle() {
-
-    const koleksiyon =
-        document.getElementById(
-            "koleksiyon"
-        );
-
-    if (!koleksiyon) {
-        return;
-    }
-
-
-    koleksiyon.innerHTML = "";
-
-
-    bulunanKartlar.forEach((kart) => {
-
-        const kartDiv =
-            document.createElement("div");
-
-        kartDiv.className =
-            "koleksiyon-karti";
-
-
-        const nadirlik =
-            document.createElement("div");
-
-        nadirlik.className =
-            "koleksiyon-nadirlik";
-
-        nadirlik.textContent =
-            kart.nadirlik;
-
-
-        const yazi =
-            document.createElement("div");
-
-        yazi.className =
-            "koleksiyon-yazi";
-
-        yazi.textContent =
-            kart.yazi;
-
-
-        const img =
-            document.createElement("img");
-
-        img.src =
-            resimYolu(kart.resim);
-
-        img.alt =
-            kart.yazi;
-
-
-        img.onerror = function () {
-
-            this.style.display =
-                "none";
-
-            console.log(
-                "Fotoğraf bulunamadı:",
-                kart.resim
-            );
-
-        };
-
-
-        kartDiv.appendChild(
-            nadirlik
-        );
-
-        kartDiv.appendChild(
-            yazi
-        );
-
-        kartDiv.appendChild(
-            img
-        );
-
-
-        koleksiyon.appendChild(
-            kartDiv
-        );
-
-    });
 
 }
 
 
 /* ==================================================
-   SAYAÇ GÜNCELLE
+   SAYAÇ
 ================================================== */
 
 function sayaciGuncelle() {
@@ -905,7 +864,97 @@ function sayaciGuncelle() {
     document.getElementById(
         "sayac"
     ).textContent =
-        `${bulunanKartlar.length} / ${kartlar.length} kart bulundu`;
+        bulunanKartlar.length +
+        " / " +
+        kartlar.length +
+        " kart bulundu";
+
+}
+
+
+/* ==================================================
+   KOLEKSİYON
+================================================== */
+
+function koleksiyonuGuncelle() {
+
+    const alan =
+        document.getElementById(
+            "koleksiyon"
+        );
+
+    alan.innerHTML = "";
+
+
+    bulunanKartlar.forEach(
+        (kart) => {
+
+            const kartDiv =
+                document.createElement(
+                    "div"
+                );
+
+            kartDiv.className =
+                "koleksiyon-karti";
+
+
+            const nadirlik =
+                document.createElement(
+                    "div"
+                );
+
+            nadirlik.className =
+                "koleksiyon-nadirlik";
+
+            nadirlik.textContent =
+                kart.nadirlik;
+
+
+            const yazi =
+                document.createElement(
+                    "div"
+                );
+
+            yazi.className =
+                "koleksiyon-yazi";
+
+            yazi.textContent =
+                kart.yazi;
+
+
+            const img =
+                document.createElement(
+                    "img"
+                );
+
+            img.src =
+                dosyaYolu(
+                    kart.resim
+                );
+
+            img.alt =
+                kart.yazi;
+
+
+            kartDiv.appendChild(
+                nadirlik
+            );
+
+            kartDiv.appendChild(
+                yazi
+            );
+
+            kartDiv.appendChild(
+                img
+            );
+
+
+            alan.appendChild(
+                kartDiv
+            );
+
+        }
+    );
 
 }
 
@@ -920,7 +969,9 @@ function kartAc() {
         return;
     }
 
-    if (kalanKartlar.length === 0) {
+    if (
+        kalanKartlar.length === 0
+    ) {
         return;
     }
 
@@ -936,12 +987,11 @@ function kartAc() {
     buton.disabled = true;
 
 
-    /* Rastgele kart seç */
+    /* Rastgele kart */
 
     const index =
         Math.floor(
-            Math.random()
-            *
+            Math.random() *
             kalanKartlar.length
         );
 
@@ -959,7 +1009,7 @@ function kartAc() {
 
 
     /* ==================================================
-       AÇILIŞ EKRANI
+       HEYECAN EKRANI
     ================================================== */
 
     document.getElementById(
@@ -992,143 +1042,124 @@ function kartAc() {
 
 
     /* ==================================================
-       GERİLİM
+       BEKLE
     ================================================== */
 
-    setTimeout(() => {
+    setTimeout(
+        () => {
+
+            /* Koleksiyona ekle */
+
+            bulunanKartlar.push(
+                secilen
+            );
 
 
-        /* Kartı koleksiyona ekle */
+            /* Sayacı güncelle */
 
-        bulunanKartlar.push(
-            secilen
-        );
+            sayaciGuncelle();
 
 
-        /* Sayacı güncelle */
+            /* Koleksiyonu güncelle */
 
-        sayaciGuncelle();
-
-
-        /* Koleksiyonu güncelle */
-
-        koleksiyonuGuncelle();
+            koleksiyonuGuncelle();
 
 
-        /* Ses */
+            /* Ses */
 
-        sesCal(
-            secilen.sinif
-        );
+            sesCal(
+                secilen.sinif
+            );
 
 
-        /* ==================================================
-           GERÇEK KART
-        ================================================== */
+            /* ==================================================
+               GERÇEK KART
+            ================================================== */
 
-        const kartAlani =
             document.getElementById(
                 "kartAlani"
-            );
+            ).innerHTML = `
 
-
-        kartAlani.innerHTML = `
-
-            <div
-                class="
-                    kart
-                    ${secilen.sinif}
-                "
-            >
-
-                <div class="nadirlik">
-                    ${secilen.nadirlik}
-                </div>
-
-                <div class="kart-yazi">
-                    ${secilen.yazi}
-                </div>
-
-                <img
-                    src="${resimYolu(secilen.resim)}"
-                    alt="${secilen.yazi}"
+                <div
+                    class="
+                        kart
+                        ${secilen.sinif}
+                    "
                 >
 
-            </div>
+                    <div class="nadirlik">
+                        ${secilen.nadirlik}
+                    </div>
 
-        `;
+                    <div class="kart-yazi">
+                        ${secilen.yazi}
+                    </div>
 
+                    <img
+                        src="${dosyaYolu(secilen.resim)}"
+                        alt="${secilen.yazi}"
+                    >
 
-        /* Fotoğraf yüklenmezse konsola yaz */
+                </div>
 
-        const acilanResim =
-            kartAlani.querySelector("img");
-
-        if (acilanResim) {
-
-            acilanResim.onerror =
-                function () {
-
-                    console.log(
-                        "Fotoğraf bulunamadı:",
-                        secilen.resim
-                    );
-
-                };
-
-        }
+            `;
 
 
-        /* ==================================================
-           KONFETİ
-        ================================================== */
+            /* Konfeti */
 
-        konfetiAt(25);
-
-
-        if (
-            secilen.sinif === "legendary" ||
-            secilen.sinif === "mythic" ||
-            secilen.sinif === "secret"
-        ) {
-
-            konfetiAt(70);
-
-        }
-
-
-        /* Kilidi aç */
-
-        kartAciliyor = false;
-
-
-        /* ==================================================
-           SON KART
-        ================================================== */
-
-        if (
-            bulunanKartlar.length ===
-            kartlar.length
-        ) {
-
-            buton.disabled =
-                true;
-
-
-            setTimeout(
-                tumKartlarBitti,
-                1800
+            konfetiAt(
+                25
             );
 
 
-        } else {
+            if (
+                secilen.sinif ===
+                "legendary" ||
 
-            buton.disabled =
+                secilen.sinif ===
+                "mythic" ||
+
+                secilen.sinif ===
+                "secret"
+            ) {
+
+                konfetiAt(
+                    70
+                );
+
+            }
+
+
+            kartAciliyor =
                 false;
 
-        }
 
-    }, 1800);
+            /* Son kart */
+
+            if (
+                bulunanKartlar.length ===
+                kartlar.length
+            ) {
+
+                buton.disabled =
+                    true;
+
+
+                setTimeout(
+                    tumKartlarBitti,
+                    1800
+                );
+
+            } else {
+
+                buton.disabled =
+                    false;
+
+            }
+
+        },
+        1800
+    );
 
 }
 
@@ -1172,7 +1203,9 @@ function tumKartlarBitti() {
     `;
 
 
-    konfetiAt(120);
+    konfetiAt(
+        120
+    );
 
 
     setTimeout(
@@ -1449,75 +1482,83 @@ function mumUfle() {
     mum.innerHTML =
         "🕯️💨";
 
+
     mum.classList.add(
         "sondu"
     );
 
 
-    konfetiAt(150);
+    konfetiAt(
+        150
+    );
 
 
-    setTimeout(() => {
+    setTimeout(
+        () => {
 
-        document.getElementById(
-            "kartAlani"
-        ).innerHTML = `
+            document.getElementById(
+                "kartAlani"
+            ).innerHTML = `
 
-            <div
-                class="
-                    kart
-                    mythic
-                    final-mesaj
-                "
-            >
-
-                <div class="final-emoji">
-                    🎁
-                </div>
-
-                <div class="pasta">
-                    🎂
-                </div>
-
-                <h1>
-                    🎉
-                </h1>
-
-                <h2>
-                    Nice Mutlu Senelere Ela!
-                </h2>
-
-                <p class="dilek">
-                    ✨ Dileğin gerçek olsun. ✨
-                </p>
-
-                <br>
-
-                <h3>
-                    🎁 Osmanın sana
-                    doğum günü hediyesi buydu.
-                </h3>
-
-                <p>
-                    Umarım beğenmişsindir. ❤️
-                </p>
-
-                <br>
-
-                <button
-                    onclick="buKadarKisaDegil()"
+                <div
+                    class="
+                        kart
+                        mythic
+                        final-mesaj
+                    "
                 >
-                    👀 Ama bu kadar kısa değil...
-                </button>
 
-            </div>
+                    <div class="final-emoji">
+                        🎁
+                    </div>
 
-        `;
+                    <div class="pasta">
+                        🎂
+                    </div>
+
+                    <h1>
+                        🎉
+                    </h1>
+
+                    <h2>
+                        Nice Mutlu Senelere Ela!
+                    </h2>
+
+                    <p class="dilek">
+                        ✨ Dileğin gerçek olsun. ✨
+                    </p>
+
+                    <br>
+
+                    <h3>
+                        🎁 Osmanın sana
+                        doğum günü hediyesi buydu.
+                    </h3>
+
+                    <p>
+                        Umarım beğenmişsindir. ❤️
+                    </p>
+
+                    <br>
+
+                    <button
+                        onclick="buKadarKisaDegil()"
+                    >
+                        👀 Ama bu kadar kısa değil...
+                    </button>
+
+                </div>
+
+            `;
 
 
-        konfetiAt(180);
+            konfetiAt(
+                180
+            );
 
-    }, 1500);
+        },
+        1500
+    );
 
 }
 
@@ -1528,7 +1569,9 @@ function mumUfle() {
 
 function buKadarKisaDegil() {
 
-    konfetiAt(60);
+    konfetiAt(
+        60
+    );
 
 
     document.getElementById(
@@ -1629,7 +1672,139 @@ function buKadarKisaDegil() {
     `;
 
 
-    konfetiAt(100);
+    konfetiAt(
+        100
+    );
+
+
+    /* Birkaç saniye sonra video */
+
+    setTimeout(
+        videoGoster,
+        5000
+    );
+
+}
+
+
+/* ==================================================
+   VİDEOYU GÖSTER
+================================================== */
+
+function videoGoster() {
+
+    document.getElementById(
+        "kartAlani"
+    ).innerHTML = `
+
+        <div
+            class="
+                kart
+                secret
+                final-mesaj
+            "
+        >
+
+            <h2>
+                🎬
+            </h2>
+
+            <p>
+                Son bir şey...
+            </p>
+
+            <video
+                id="sonVideo"
+                class="son-video"
+                controls
+                playsinline
+                preload="metadata"
+            >
+
+                <source
+                    src="${dosyaYolu("özür.mp4")}"
+                    type="video/mp4"
+                >
+
+                Tarayıcın video oynatmayı desteklemiyor.
+
+            </video>
+
+        </div>
+
+    `;
+
+
+    const video =
+        document.getElementById(
+            "sonVideo"
+        );
+
+
+    if (!video) {
+        return;
+    }
+
+
+    /* Video bittiğinde */
+
+    video.addEventListener(
+        "ended",
+        videoBitti
+    );
+
+}
+
+
+/* ==================================================
+   VİDEO BİTTİ
+================================================== */
+
+function videoBitti() {
+
+    konfetiAt(
+        150
+    );
+
+
+    document.getElementById(
+        "kartAlani"
+    ).innerHTML = `
+
+        <div
+            class="
+                kart
+                mythic
+                final-mesaj
+                instagram-mesaj
+            "
+        >
+
+            <div class="final-emoji">
+                🥹
+            </div>
+
+            <h2>
+                Seni engellediğim için
+                özür dilerim.
+            </h2>
+
+            <p>
+                Instagram'ına alır mısın?
+            </p>
+
+            <div class="final-emoji">
+                ❤️
+            </div>
+
+        </div>
+
+    `;
+
+
+    konfetiAt(
+        100
+    );
 
 }
 
@@ -1641,12 +1816,14 @@ function buKadarKisaDegil() {
 function konfetiAt(sayi) {
 
     const karakterler = [
+
         "🎉",
         "🎊",
         "✨",
         "⭐",
         "💖",
         "🎂"
+
     ];
 
 
@@ -1713,11 +1890,14 @@ function konfetiAt(sayi) {
         );
 
 
-        setTimeout(() => {
+        setTimeout(
+            () => {
 
-            konfeti.remove();
+                konfeti.remove();
 
-        }, 4000);
+            },
+            4000
+        );
 
     }
 
@@ -1728,4 +1908,3 @@ function konfetiAt(sayi) {
 </body>
 
 </html>
-```
