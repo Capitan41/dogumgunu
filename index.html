@@ -10,9 +10,9 @@
 
 <style>
 
-/* ==================================================
+/* =========================
    GENEL
-================================================== */
+========================= */
 
 * {
     box-sizing: border-box;
@@ -49,9 +49,9 @@ h1 {
 }
 
 
-/* ==================================================
+/* =========================
    BUTON
-================================================== */
+========================= */
 
 button {
     padding: 16px 35px;
@@ -85,13 +85,12 @@ button:active {
 button:disabled {
     opacity: 0.5;
     cursor: not-allowed;
-    transform: none;
 }
 
 
-/* ==================================================
+/* =========================
    KART ALANI
-================================================== */
+========================= */
 
 #kartAlani {
     width: 100%;
@@ -107,9 +106,9 @@ button:disabled {
 }
 
 
-/* ==================================================
+/* =========================
    KART
-================================================== */
+========================= */
 
 .kart {
     width: 100%;
@@ -146,7 +145,6 @@ button:disabled {
     }
 }
 
-
 .kart img {
     display: block;
 
@@ -162,11 +160,9 @@ button:disabled {
     background: #eee;
 }
 
-
 .nadirlik {
     font-size: 22px;
     font-weight: bold;
-    margin-bottom: 5px;
 }
 
 .kart-yazi {
@@ -176,13 +172,12 @@ button:disabled {
 }
 
 
-/* ==================================================
-   KART AÇILIŞ ANİMASYONU
-================================================== */
+/* =========================
+   KART AÇILIŞ
+========================= */
 
 .aciliyor {
-    animation:
-        kartSalla 0.12s infinite alternate;
+    animation: kartSalla 0.12s infinite alternate;
 }
 
 @keyframes kartSalla {
@@ -198,9 +193,7 @@ button:disabled {
 
 .aciliyor-emoji {
     font-size: 100px;
-
-    animation:
-        don 1s linear infinite;
+    animation: don 1s linear infinite;
 }
 
 @keyframes don {
@@ -215,9 +208,9 @@ button:disabled {
 }
 
 
-/* ==================================================
+/* =========================
    NADİRLİKLER
-================================================== */
+========================= */
 
 .common {
     border: 5px solid #aaa;
@@ -297,14 +290,13 @@ button:disabled {
     color: white;
 
     box-shadow:
-        0 0 30px rgba(0,0,0,0.8),
-        0 0 60px rgba(255,255,255,0.2);
+        0 0 30px rgba(0,0,0,0.8);
 }
 
 
-/* ==================================================
+/* =========================
    SAYAC
-================================================== */
+========================= */
 
 #sayac {
     font-size: 20px;
@@ -325,9 +317,9 @@ button:disabled {
 }
 
 
-/* ==================================================
+/* =========================
    KOLEKSİYON
-================================================== */
+========================= */
 
 #koleksiyon {
     max-width: 900px;
@@ -352,8 +344,7 @@ button:disabled {
     box-shadow:
         0 5px 15px rgba(0,0,0,0.15);
 
-    animation:
-        koleksiyonGiris 0.4s ease;
+    animation: koleksiyonGiris 0.4s ease;
 }
 
 @keyframes koleksiyonGiris {
@@ -384,7 +375,6 @@ button:disabled {
 
 .koleksiyon-nadirlik {
     font-weight: bold;
-    font-size: 15px;
 }
 
 .koleksiyon-yazi {
@@ -392,13 +382,12 @@ button:disabled {
 }
 
 
-/* ==================================================
+/* =========================
    FİNAL
-================================================== */
+========================= */
 
 .final-mesaj {
-    animation:
-        finalGiris 1s ease;
+    animation: finalGiris 1s ease;
 }
 
 @keyframes finalGiris {
@@ -420,17 +409,15 @@ button:disabled {
 }
 
 
-/* ==================================================
+/* =========================
    PASTA
-================================================== */
+========================= */
 
 .pasta {
     font-size: 120px;
-
     margin: 10px;
 
-    animation:
-        pastaHareket 1.3s infinite alternate;
+    animation: pastaHareket 1.3s infinite alternate;
 }
 
 @keyframes pastaHareket {
@@ -445,9 +432,9 @@ button:disabled {
 }
 
 
-/* ==================================================
+/* =========================
    MUM
-================================================== */
+========================= */
 
 .mum {
     font-size: 70px;
@@ -462,15 +449,14 @@ button:disabled {
 }
 
 
-/* ==================================================
+/* =========================
    DİLEK
-================================================== */
+========================= */
 
 .dilek {
     font-size: 24px;
 
-    animation:
-        dilekParilti 1.2s infinite alternate;
+    animation: dilekParilti 1.2s infinite alternate;
 }
 
 @keyframes dilekParilti {
@@ -485,15 +471,14 @@ button:disabled {
 }
 
 
-/* ==================================================
+/* =========================
    VİDEO
-================================================== */
+========================= */
 
 .son-video {
     display: block;
 
     width: 100%;
-
     max-height: 600px;
 
     border-radius: 18px;
@@ -502,21 +487,21 @@ button:disabled {
 }
 
 
-/* ==================================================
+/* =========================
    KONFETİ
-================================================== */
+========================= */
 
 .konfeti {
     position: fixed;
 
     top: -20px;
 
-    animation:
-        konfetiDus 3s linear forwards;
-
     z-index: 9999;
 
     pointer-events: none;
+
+    animation:
+        konfetiDus 3s linear forwards;
 }
 
 @keyframes konfetiDus {
@@ -531,9 +516,9 @@ button:disabled {
 }
 
 
-/* ==================================================
+/* =========================
    MOBİL
-================================================== */
+========================= */
 
 @media (max-width: 600px) {
 
@@ -560,7 +545,6 @@ button:disabled {
     .final-mesaj h2 {
         font-size: 25px;
     }
-
 }
 
 </style>
@@ -570,24 +554,15 @@ button:disabled {
 
 <body>
 
-
-<h1>
-    🎂 İyi Ki Doğdun ELA 🎂
-</h1>
-
+<h1>🎂 İyi Ki Doğdun ELA 🎂</h1>
 
 <p class="subtitle">
     Kart aç ve sürprizleri keşfet 😎
 </p>
 
-
-<button
-    id="kartButonu"
-    onclick="kartAc()"
->
+<button id="kartButonu" onclick="kartAc()">
     🎴 KART AÇ
 </button>
-
 
 <div id="kartAlani">
 
@@ -609,54 +584,36 @@ button:disabled {
 
 </div>
 
-
 <div id="sayac">
     0 / 16 kart bulundu
 </div>
-
 
 <h2>
     📚 KART KOLEKSİYONU
 </h2>
 
-
-<div id="koleksiyon">
-</div>
+<div id="koleksiyon"></div>
 
 
 <script>
 
-/* ==================================================
+/* =========================
    SESLER
-================================================== */
+========================= */
 
 const sesler = {
-
-    common:
-        new Audio("common.mp3"),
-
-    rare:
-        new Audio("rare.mp3"),
-
-    epic:
-        new Audio("epic.mp3"),
-
-    legendary:
-        new Audio("legendary.mp3"),
-
-    mythic:
-        new Audio("mythic.mp3"),
-
-    secret:
-        new Audio("secret.mp3")
-
+    common: new Audio("common.mp3"),
+    rare: new Audio("rare.mp3"),
+    epic: new Audio("epic.mp3"),
+    legendary: new Audio("legendary.mp3"),
+    mythic: new Audio("mythic.mp3"),
+    secret: new Audio("secret.mp3")
 };
 
 
-/* ==================================================
+/* =========================
    KARTLAR
-   FOTOĞRAF İSİMLERİ AYNEN KORUNDU
-================================================== */
+========================= */
 
 const kartlar = [
 
@@ -775,25 +732,27 @@ const kartlar = [
 ];
 
 
+/* =========================
+   DEĞİŞKENLER
+========================= */
+
 let kalanKartlar = [...kartlar];
-
 let bulunanKartlar = [];
-
 let kartAciliyor = false;
 
 
-/* ==================================================
+/* =========================
    DOSYA YOLU
-================================================== */
+========================= */
 
-function dosyaYolu(dosyaAdi) {
-    return encodeURI(dosyaAdi);
+function dosyaYolu(ad) {
+    return encodeURI(ad);
 }
 
 
-/* ==================================================
-   SES ÇAL
-================================================== */
+/* =========================
+   SES
+========================= */
 
 function sesCal(sinif) {
 
@@ -805,135 +764,98 @@ function sesCal(sinif) {
 
     try {
 
-        ses.pause();
         ses.currentTime = 0;
 
-        const oynatma = ses.play();
+        const oynat =
+            ses.play();
 
-        if (
-            oynatma &&
-            typeof oynatma.catch === "function"
-        ) {
-            oynatma.catch(() => {});
+        if (oynat) {
+            oynat.catch(() => {});
         }
 
     } catch (hata) {
-
-        console.log(
-            "Ses oynatılamadı:",
-            hata
-        );
-
+        console.log("Ses hatası:", hata);
     }
-
 }
 
 
-/* ==================================================
+/* =========================
    SAYAÇ
-================================================== */
+========================= */
 
 function sayaciGuncelle() {
 
-    document.getElementById(
-        "sayac"
-    ).textContent =
+    document.getElementById("sayac").textContent =
         bulunanKartlar.length +
         " / " +
         kartlar.length +
         " kart bulundu";
-
 }
 
 
-/* ==================================================
+/* =========================
    KOLEKSİYON
-================================================== */
+========================= */
 
 function koleksiyonuGuncelle() {
 
     const alan =
-        document.getElementById(
-            "koleksiyon"
-        );
+        document.getElementById("koleksiyon");
 
     alan.innerHTML = "";
 
+    bulunanKartlar.forEach(function(kart) {
 
-    bulunanKartlar.forEach(
-        (kart) => {
+        const kartDiv =
+            document.createElement("div");
 
-            const kartDiv =
-                document.createElement(
-                    "div"
-                );
-
-            kartDiv.className =
-                "koleksiyon-karti";
+        kartDiv.className =
+            "koleksiyon-karti";
 
 
-            const nadirlik =
-                document.createElement(
-                    "div"
-                );
+        const nadirlik =
+            document.createElement("div");
 
-            nadirlik.className =
-                "koleksiyon-nadirlik";
+        nadirlik.className =
+            "koleksiyon-nadirlik";
 
-            nadirlik.textContent =
-                kart.nadirlik;
+        nadirlik.textContent =
+            kart.nadirlik;
 
 
-            const yazi =
-                document.createElement(
-                    "div"
-                );
+        const yazi =
+            document.createElement("div");
 
-            yazi.className =
-                "koleksiyon-yazi";
+        yazi.className =
+            "koleksiyon-yazi";
 
-            yazi.textContent =
-                kart.yazi;
+        yazi.textContent =
+            kart.yazi;
 
 
-            const img =
-                document.createElement(
-                    "img"
-                );
+        const img =
+            document.createElement("img");
 
-            img.src =
-                dosyaYolu(kart.resim);
+        img.src =
+            dosyaYolu(kart.resim);
 
-            img.alt =
-                kart.yazi;
+        img.alt =
+            kart.yazi;
 
 
-            kartDiv.appendChild(
-                nadirlik
-            );
+        kartDiv.appendChild(nadirlik);
+        kartDiv.appendChild(yazi);
+        kartDiv.appendChild(img);
 
-            kartDiv.appendChild(
-                yazi
-            );
+        alan.appendChild(kartDiv);
 
-            kartDiv.appendChild(
-                img
-            );
-
-
-            alan.appendChild(
-                kartDiv
-            );
-
-        }
-    );
-
+    });
 }
 
 
-/* ==================================================
+/* =========================
    KART AÇ
-================================================== */
+========================= */
 
 function kartAc() {
 
@@ -945,17 +867,15 @@ function kartAc() {
         return;
     }
 
-
     kartAciliyor = true;
 
-
     const buton =
-        document.getElementById(
-            "kartButonu"
-        );
+        document.getElementById("kartButonu");
 
     buton.disabled = true;
 
+
+    /* Rastgele kart */
 
     const index =
         Math.floor(
@@ -963,32 +883,24 @@ function kartAc() {
             kalanKartlar.length
         );
 
-
     const secilen =
         kalanKartlar[index];
 
 
-    kalanKartlar.splice(
-        index,
-        1
-    );
+    /* Listeden çıkar */
+
+    kalanKartlar.splice(index, 1);
 
 
-    /* ==================================================
-       HEYECAN EKRANI
-    ================================================== */
+    /* =========================
+       HEYECAN
+    ========================= */
 
     document.getElementById(
         "kartAlani"
     ).innerHTML = `
 
-        <div
-            class="
-                kart
-                ${secilen.sinif}
-                aciliyor
-            "
-        >
+        <div class="kart ${secilen.sinif} aciliyor">
 
             <div class="aciliyor-emoji">
                 🎴
@@ -1007,101 +919,91 @@ function kartAc() {
     `;
 
 
-    /* ==================================================
-       1.8 SANİYE SONRA GERÇEK KART
-    ================================================== */
+    /* =========================
+       KARTI AÇ
+    ========================= */
 
-    setTimeout(
-        () => {
+    setTimeout(function() {
 
-            bulunanKartlar.push(
-                secilen
-            );
+        bulunanKartlar.push(secilen);
 
+        sayaciGuncelle();
 
-            sayaciGuncelle();
+        koleksiyonuGuncelle();
 
-            koleksiyonuGuncelle();
-
-            sesCal(
-                secilen.sinif
-            );
+        sesCal(secilen.sinif);
 
 
-            document.getElementById(
-                "kartAlani"
-            ).innerHTML = `
+        document.getElementById(
+            "kartAlani"
+        ).innerHTML = `
 
-                <div
-                    class="
-                        kart
-                        ${secilen.sinif}
-                    "
-                >
+            <div class="kart ${secilen.sinif}">
 
-                    <div class="nadirlik">
-                        ${secilen.nadirlik}
-                    </div>
-
-                    <div class="kart-yazi">
-                        ${secilen.yazi}
-                    </div>
-
-                    <img
-                        src="${dosyaYolu(secilen.resim)}"
-                        alt="${secilen.yazi}"
-                    >
-
+                <div class="nadirlik">
+                    ${secilen.nadirlik}
                 </div>
 
-            `;
+                <div class="kart-yazi">
+                    ${secilen.yazi}
+                </div>
+
+                <img
+                    src="${dosyaYolu(secilen.resim)}"
+                    alt="${secilen.yazi}"
+                >
+
+            </div>
+
+        `;
 
 
-            konfetiAt(25);
+        /* Konfeti */
+
+        konfetiAt(25);
 
 
-            if (
-                secilen.sinif === "legendary" ||
-                secilen.sinif === "mythic" ||
-                secilen.sinif === "secret"
-            ) {
+        if (
+            secilen.sinif === "legendary" ||
+            secilen.sinif === "mythic" ||
+            secilen.sinif === "secret"
+        ) {
 
-                konfetiAt(70);
+            konfetiAt(70);
 
-            }
-
-
-            kartAciliyor = false;
+        }
 
 
-            if (
-                bulunanKartlar.length ===
-                kartlar.length
-            ) {
+        kartAciliyor = false;
 
-                buton.disabled = true;
 
-                setTimeout(
-                    tumKartlarBitti,
-                    1800
-                );
+        /* Son kart */
 
-            } else {
+        if (
+            bulunanKartlar.length ===
+            kartlar.length
+        ) {
 
-                buton.disabled = false;
+            buton.disabled = true;
 
-            }
+            setTimeout(
+                tumKartlarBitti,
+                1800
+            );
 
-        },
-        1800
-    );
+        } else {
 
+            buton.disabled = false;
+
+        }
+
+    }, 1800);
 }
 
 
-/* ==================================================
+/* =========================
    TÜM KARTLAR
-================================================== */
+========================= */
 
 function tumKartlarBitti() {
 
@@ -1109,13 +1011,7 @@ function tumKartlarBitti() {
         "kartAlani"
     ).innerHTML = `
 
-        <div
-            class="
-                kart
-                mythic
-                final-mesaj
-            "
-        >
+        <div class="kart mythic final-mesaj">
 
             <div class="final-emoji">
                 🏆
@@ -1137,21 +1033,15 @@ function tumKartlarBitti() {
 
     `;
 
-
     konfetiAt(120);
 
-
-    setTimeout(
-        final1,
-        3500
-    );
-
+    setTimeout(final1, 3500);
 }
 
 
-/* ==================================================
+/* =========================
    FİNAL 1
-================================================== */
+========================= */
 
 function final1() {
 
@@ -1173,18 +1063,13 @@ function final1() {
 
     `;
 
-
-    setTimeout(
-        final2,
-        2600
-    );
-
+    setTimeout(final2, 2600);
 }
 
 
-/* ==================================================
+/* =========================
    FİNAL 2
-================================================== */
+========================= */
 
 function final2() {
 
@@ -1206,18 +1091,13 @@ function final2() {
 
     `;
 
-
-    setTimeout(
-        final3,
-        2600
-    );
-
+    setTimeout(final3, 2600);
 }
 
 
-/* ==================================================
+/* =========================
    FİNAL 3
-================================================== */
+========================= */
 
 function final3() {
 
@@ -1239,18 +1119,13 @@ function final3() {
 
     `;
 
-
-    setTimeout(
-        final4,
-        2600
-    );
-
+    setTimeout(final4, 2600);
 }
 
 
-/* ==================================================
+/* =========================
    FİNAL 4
-================================================== */
+========================= */
 
 function final4() {
 
@@ -1273,18 +1148,13 @@ function final4() {
 
     `;
 
-
-    setTimeout(
-        final5,
-        3200
-    );
-
+    setTimeout(final5, 3200);
 }
 
 
-/* ==================================================
+/* =========================
    FİNAL 5
-================================================== */
+========================= */
 
 function final5() {
 
@@ -1306,18 +1176,13 @@ function final5() {
 
     `;
 
-
-    setTimeout(
-        pastaGoster,
-        3200
-    );
-
+    setTimeout(pastaGoster, 3200);
 }
 
 
-/* ==================================================
+/* =========================
    PASTA
-================================================== */
+========================= */
 
 function pastaGoster() {
 
@@ -1346,133 +1211,104 @@ function pastaGoster() {
                 O zaman mumu üfle! 💨
             </p>
 
-            <button
-                onclick="mumUfle()"
-            >
+            <button onclick="mumUfle()">
                 💨 MUMU ÜFLE
             </button>
 
         </div>
 
     `;
-
 }
 
 
-/* ==================================================
+/* =========================
    MUMU ÜFLE
-================================================== */
+========================= */
 
 function mumUfle() {
 
     const mum =
-        document.getElementById(
-            "mum"
-        );
-
+        document.getElementById("mum");
 
     if (!mum) {
         return;
     }
 
+    mum.innerHTML = "🕯️💨";
 
-    mum.innerHTML =
-        "🕯️💨";
-
-    mum.classList.add(
-        "sondu"
-    );
-
+    mum.classList.add("sondu");
 
     konfetiAt(150);
 
 
-    setTimeout(
-        () => {
+    setTimeout(function() {
 
-            document.getElementById(
-                "kartAlani"
-            ).innerHTML = `
+        document.getElementById(
+            "kartAlani"
+        ).innerHTML = `
 
-                <div class="
-                    kart
-                    mythic
-                    final-mesaj
-                ">
+            <div class="kart mythic final-mesaj">
 
-                    <div class="final-emoji">
-                        🎁
-                    </div>
-
-                    <div class="pasta">
-                        🎂
-                    </div>
-
-                    <h1>
-                        🎉
-                    </h1>
-
-                    <h2>
-                        Nice Mutlu Senelere Ela!
-                    </h2>
-
-                    <p class="dilek">
-                        ✨ Dileğin gerçek olsun. ✨
-                    </p>
-
-                    <br>
-
-                    <h3>
-                        🎁 Osmanın sana
-                        doğum günü hediyesi buydu.
-                    </h3>
-
-                    <p>
-                        Umarım beğenmişsindir. ❤️
-                    </p>
-
-                    <br>
-
-                    <button
-                        onclick="buKadarKisaDegil()"
-                    >
-                        👀 Ama bu kadar kısa değil...
-                    </button>
-
+                <div class="final-emoji">
+                    🎁
                 </div>
 
-            `;
+                <div class="pasta">
+                    🎂
+                </div>
 
+                <h1>
+                    🎉
+                </h1>
 
-            konfetiAt(180);
+                <h2>
+                    Nice Mutlu Senelere Ela!
+                </h2>
 
-        },
-        1500
-    );
+                <p class="dilek">
+                    ✨ Dileğin gerçek olsun. ✨
+                </p>
 
+                <br>
+
+                <h3>
+                    🎁 Osmanın sana
+                    doğum günü hediyesi buydu.
+                </h3>
+
+                <p>
+                    Umarım beğenmişsindir. ❤️
+                </p>
+
+                <br>
+
+                <button onclick="buKadarKisaDegil()">
+                    👀 Ama bu kadar kısa değil...
+                </button>
+
+            </div>
+
+        `;
+
+        konfetiAt(180);
+
+    }, 1500);
 }
 
 
-/* ==================================================
+/* =========================
    BU KADAR KISA DEĞİL
-================================================== */
+========================= */
 
 function buKadarKisaDegil() {
 
     konfetiAt(60);
 
-
     document.getElementById(
         "kartAlani"
     ).innerHTML = `
 
-        <div
-            class="
-                kart
-                mythic
-                final-mesaj
-            "
-        >
+        <div class="kart mythic final-mesaj">
 
             <div class="final-emoji">
                 🎁
@@ -1482,31 +1318,16 @@ function buKadarKisaDegil() {
                 Şimdi benden bir şey iste.
             </h2>
 
-            <p
-                style="
-                    font-size:20px;
-                    line-height:1.6;
-                "
-            >
+            <p style="font-size:20px; line-height:1.6;">
                 Yapacağım.
             </p>
 
-            <p
-                style="
-                    font-size:20px;
-                    line-height:1.6;
-                "
-            >
+            <p style="font-size:20px; line-height:1.6;">
                 Maske yapmamı bile
                 isteyebilirsin. 😭
             </p>
 
-            <p
-                style="
-                    font-size:18px;
-                    margin-top:25px;
-                "
-            >
+            <p style="font-size:18px; margin-top:25px;">
                 Bunu neden söyledim?
             </p>
 
@@ -1514,35 +1335,18 @@ function buKadarKisaDegil() {
                 Neyse...
             </h3>
 
-            <p
-                style="
-                    font-size:20px;
-                    line-height:1.6;
-                "
-            >
-                Ne istediğini
-                WhatsApp'tan yaz
+            <p style="font-size:20px; line-height:1.6;">
+                Ne istediğini WhatsApp'tan yaz
                 ve elimden geldiğince
                 yapmaya çalışayım.
             </p>
 
-            <p
-                style="
-                    font-size:20px;
-                    line-height:1.6;
-                "
-            >
+            <p style="font-size:20px; line-height:1.6;">
                 Ve bunun için teşekkür et.
             </p>
 
-            <p
-                style="
-                    font-size:20px;
-                    line-height:1.6;
-                "
-            >
-                Teşekkür edersen
-                mutlu olurum. ❤️
+            <p style="font-size:20px; line-height:1.6;">
+                Teşekkür edersen mutlu olurum. ❤️
             </p>
 
             <br>
@@ -1557,9 +1361,7 @@ function buKadarKisaDegil() {
 
             <br>
 
-            <button
-                onclick="videoGoster()"
-            >
+            <button onclick="videoGoster()">
                 🎬 Son sürprize geç
             </button>
 
@@ -1567,15 +1369,13 @@ function buKadarKisaDegil() {
 
     `;
 
-
     konfetiAt(100);
-
 }
 
 
-/* ==================================================
-   SON VİDEO
-================================================== */
+/* =========================
+   VİDEO
+========================= */
 
 function videoGoster() {
 
@@ -1583,13 +1383,7 @@ function videoGoster() {
         "kartAlani"
     ).innerHTML = `
 
-        <div
-            class="
-                kart
-                secret
-                final-mesaj
-            "
-        >
+        <div class="kart secret final-mesaj">
 
             <h2>
                 Son bir şey... ❤️
@@ -1614,13 +1408,12 @@ function videoGoster() {
         </div>
 
     `;
-
 }
 
 
-/* ==================================================
+/* =========================
    KONFETİ
-================================================== */
+========================= */
 
 function konfetiAt(sayi) {
 
@@ -1633,81 +1426,38 @@ function konfetiAt(sayi) {
         "🎂"
     ];
 
-
-    for (
-        let i = 0;
-        i < sayi;
-        i++
-    ) {
+    for (let i = 0; i < sayi; i++) {
 
         const konfeti =
-            document.createElement(
-                "div"
-            );
-
+            document.createElement("div");
 
         konfeti.className =
             "konfeti";
 
-
         konfeti.textContent =
             karakterler[
                 Math.floor(
-                    Math.random()
-                    *
+                    Math.random() *
                     karakterler.length
                 )
             ];
 
-
         konfeti.style.left =
-            Math.random()
-            *
-            100
-            +
-            "vw";
-
+            Math.random() * 100 + "vw";
 
         konfeti.style.fontSize =
-            (
-                Math.random()
-                *
-                15
-                +
-                10
-            )
-            +
-            "px";
-
+            (Math.random() * 15 + 10) + "px";
 
         konfeti.style.animationDuration =
-            (
-                Math.random()
-                *
-                2
-                +
-                2
-            )
-            +
-            "s";
+            (Math.random() * 2 + 2) + "s";
 
+        document.body.appendChild(konfeti);
 
-        document.body.appendChild(
-            konfeti
-        );
-
-
-        setTimeout(
-            () => {
-
-                konfeti.remove();
-
-            },
-            4000
-        );
+        setTimeout(function() {
+            konfeti.remove();
+        }, 4000);
 
     }
-
 }
 
 </script>
