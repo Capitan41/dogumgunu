@@ -459,8 +459,7 @@ button:disabled {
     opacity: 0.35;
     filter: grayscale(1);
 
-    transform:
-        scale(0.8);
+    transform: scale(0.8);
 }
 
 
@@ -484,6 +483,23 @@ button:disabled {
     to {
         transform: scale(1.06);
     }
+}
+
+
+/* ==================================================
+   VİDEO
+================================================== */
+
+.son-video {
+    display: block;
+
+    width: 100%;
+
+    max-height: 600px;
+
+    border-radius: 18px;
+
+    background: black;
 }
 
 
@@ -513,37 +529,6 @@ button:disabled {
 
         opacity: 0;
     }
-}
-
-
-/* ==================================================
-   VİDEO
-================================================== */
-
-.son-video {
-    width: 100%;
-
-    max-height: 600px;
-
-    border-radius: 18px;
-
-    display: block;
-
-    background: black;
-}
-
-
-/* ==================================================
-   SON MESAJ
-================================================== */
-
-.instagram-mesaj h2 {
-    line-height: 1.5;
-}
-
-.instagram-mesaj p {
-    font-size: 22px;
-    line-height: 1.6;
 }
 
 
@@ -641,7 +626,6 @@ button:disabled {
 
 
 <script>
-
 
 /* ==================================================
    SESLER
@@ -987,8 +971,6 @@ function kartAc() {
     buton.disabled = true;
 
 
-    /* Rastgele kart */
-
     const index =
         Math.floor(
             Math.random() *
@@ -1000,8 +982,6 @@ function kartAc() {
         kalanKartlar[index];
 
 
-    /* Kartı listeden çıkar */
-
     kalanKartlar.splice(
         index,
         1
@@ -1009,7 +989,7 @@ function kartAc() {
 
 
     /* ==================================================
-       HEYECAN EKRANI
+       HEYECAN
     ================================================== */
 
     document.getElementById(
@@ -1042,39 +1022,25 @@ function kartAc() {
 
 
     /* ==================================================
-       BEKLE
+       GERÇEK KART
     ================================================== */
 
     setTimeout(
         () => {
-
-            /* Koleksiyona ekle */
 
             bulunanKartlar.push(
                 secilen
             );
 
 
-            /* Sayacı güncelle */
-
             sayaciGuncelle();
 
-
-            /* Koleksiyonu güncelle */
-
             koleksiyonuGuncelle();
-
-
-            /* Ses */
 
             sesCal(
                 secilen.sinif
             );
 
-
-            /* ==================================================
-               GERÇEK KART
-            ================================================== */
 
             document.getElementById(
                 "kartAlani"
@@ -1105,36 +1071,22 @@ function kartAc() {
             `;
 
 
-            /* Konfeti */
-
-            konfetiAt(
-                25
-            );
+            konfetiAt(25);
 
 
             if (
-                secilen.sinif ===
-                "legendary" ||
-
-                secilen.sinif ===
-                "mythic" ||
-
-                secilen.sinif ===
-                "secret"
+                secilen.sinif === "legendary" ||
+                secilen.sinif === "mythic" ||
+                secilen.sinif === "secret"
             ) {
 
-                konfetiAt(
-                    70
-                );
+                konfetiAt(70);
 
             }
 
 
-            kartAciliyor =
-                false;
+            kartAciliyor = false;
 
-
-            /* Son kart */
 
             if (
                 bulunanKartlar.length ===
@@ -1143,7 +1095,6 @@ function kartAc() {
 
                 buton.disabled =
                     true;
-
 
                 setTimeout(
                     tumKartlarBitti,
@@ -1226,13 +1177,7 @@ function final1() {
         "kartAlani"
     ).innerHTML = `
 
-        <div
-            class="
-                kart
-                mythic
-                final-mesaj
-            "
-        >
+        <div class="kart mythic final-mesaj">
 
             <div class="final-emoji">
                 🎃
@@ -1265,13 +1210,7 @@ function final2() {
         "kartAlani"
     ).innerHTML = `
 
-        <div
-            class="
-                kart
-                mythic
-                final-mesaj
-            "
-        >
+        <div class="kart mythic final-mesaj">
 
             <div class="final-emoji">
                 🍞
@@ -1304,13 +1243,7 @@ function final3() {
         "kartAlani"
     ).innerHTML = `
 
-        <div
-            class="
-                kart
-                mythic
-                final-mesaj
-            "
-        >
+        <div class="kart mythic final-mesaj">
 
             <div class="final-emoji">
                 🤨
@@ -1343,13 +1276,7 @@ function final4() {
         "kartAlani"
     ).innerHTML = `
 
-        <div
-            class="
-                kart
-                mythic
-                final-mesaj
-            "
-        >
+        <div class="kart mythic final-mesaj">
 
             <div class="final-emoji">
                 ❤️
@@ -1383,13 +1310,7 @@ function final5() {
         "kartAlani"
     ).innerHTML = `
 
-        <div
-            class="
-                kart
-                mythic
-                final-mesaj
-            "
-        >
+        <div class="kart mythic final-mesaj">
 
             <div class="final-emoji">
                 ✨
@@ -1422,13 +1343,7 @@ function pastaGoster() {
         "kartAlani"
     ).innerHTML = `
 
-        <div
-            class="
-                kart
-                legendary
-                final-mesaj
-            "
-        >
+        <div class="kart legendary final-mesaj">
 
             <div class="pasta">
                 🎂
@@ -1481,7 +1396,6 @@ function mumUfle() {
 
     mum.innerHTML =
         "🕯️💨";
-
 
     mum.classList.add(
         "sondu"
@@ -1568,11 +1482,6 @@ function mumUfle() {
 ================================================== */
 
 function buKadarKisaDegil() {
-
-    konfetiAt(
-        60
-    );
-
 
     document.getElementById(
         "kartAlani"
@@ -1688,7 +1597,7 @@ function buKadarKisaDegil() {
 
 
 /* ==================================================
-   VİDEOYU GÖSTER
+   SON VİDEO
 ================================================== */
 
 function videoGoster() {
@@ -1706,15 +1615,10 @@ function videoGoster() {
         >
 
             <h2>
-                🎬
+                Son bir şey... ❤️
             </h2>
 
-            <p>
-                Son bir şey...
-            </p>
-
             <video
-                id="sonVideo"
                 class="son-video"
                 controls
                 playsinline
@@ -1734,78 +1638,6 @@ function videoGoster() {
 
     `;
 
-
-    const video =
-        document.getElementById(
-            "sonVideo"
-        );
-
-
-    if (!video) {
-        return;
-    }
-
-
-    /* Video bittiğinde */
-
-    video.addEventListener(
-        "ended",
-        videoBitti
-    );
-
-}
-
-
-/* ==================================================
-   VİDEO BİTTİ
-================================================== */
-
-function videoBitti() {
-
-    konfetiAt(
-        150
-    );
-
-
-    document.getElementById(
-        "kartAlani"
-    ).innerHTML = `
-
-        <div
-            class="
-                kart
-                mythic
-                final-mesaj
-                instagram-mesaj
-            "
-        >
-
-            <div class="final-emoji">
-                🥹
-            </div>
-
-            <h2>
-                Seni engellediğim için
-                özür dilerim.
-            </h2>
-
-            <p>
-                Instagram'ına alır mısın?
-            </p>
-
-            <div class="final-emoji">
-                ❤️
-            </div>
-
-        </div>
-
-    `;
-
-
-    konfetiAt(
-        100
-    );
-
 }
 
 
@@ -1816,14 +1648,12 @@ function videoBitti() {
 function konfetiAt(sayi) {
 
     const karakterler = [
-
         "🎉",
         "🎊",
         "✨",
         "⭐",
         "💖",
         "🎂"
-
     ];
 
 
