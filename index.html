@@ -458,7 +458,6 @@ button:disabled {
 .mum.sondu {
     opacity: 0.35;
     filter: grayscale(1);
-
     transform: scale(0.8);
 }
 
@@ -788,9 +787,7 @@ let kartAciliyor = false;
 ================================================== */
 
 function dosyaYolu(dosyaAdi) {
-
     return encodeURI(dosyaAdi);
-
 }
 
 
@@ -800,8 +797,7 @@ function dosyaYolu(dosyaAdi) {
 
 function sesCal(sinif) {
 
-    const ses =
-        sesler[sinif];
+    const ses = sesler[sinif];
 
     if (!ses) {
         return;
@@ -810,21 +806,15 @@ function sesCal(sinif) {
     try {
 
         ses.pause();
-
         ses.currentTime = 0;
 
-        const oynatma =
-            ses.play();
+        const oynatma = ses.play();
 
         if (
             oynatma &&
             typeof oynatma.catch === "function"
         ) {
-
-            oynatma.catch(
-                () => {}
-            );
-
+            oynatma.catch(() => {});
         }
 
     } catch (hata) {
@@ -912,9 +902,7 @@ function koleksiyonuGuncelle() {
                 );
 
             img.src =
-                dosyaYolu(
-                    kart.resim
-                );
+                dosyaYolu(kart.resim);
 
             img.alt =
                 kart.yazi;
@@ -953,9 +941,7 @@ function kartAc() {
         return;
     }
 
-    if (
-        kalanKartlar.length === 0
-    ) {
+    if (kalanKartlar.length === 0) {
         return;
     }
 
@@ -989,7 +975,7 @@ function kartAc() {
 
 
     /* ==================================================
-       HEYECAN
+       HEYECAN EKRANI
     ================================================== */
 
     document.getElementById(
@@ -1022,7 +1008,7 @@ function kartAc() {
 
 
     /* ==================================================
-       GERÇEK KART
+       1.8 SANİYE SONRA GERÇEK KART
     ================================================== */
 
     setTimeout(
@@ -1093,8 +1079,7 @@ function kartAc() {
                 kartlar.length
             ) {
 
-                buton.disabled =
-                    true;
+                buton.disabled = true;
 
                 setTimeout(
                     tumKartlarBitti,
@@ -1103,8 +1088,7 @@ function kartAc() {
 
             } else {
 
-                buton.disabled =
-                    false;
+                buton.disabled = false;
 
             }
 
@@ -1116,7 +1100,7 @@ function kartAc() {
 
 
 /* ==================================================
-   TÜM KARTLAR BİTTİ
+   TÜM KARTLAR
 ================================================== */
 
 function tumKartlarBitti() {
@@ -1154,9 +1138,7 @@ function tumKartlarBitti() {
     `;
 
 
-    konfetiAt(
-        120
-    );
+    konfetiAt(120);
 
 
     setTimeout(
@@ -1334,7 +1316,7 @@ function final5() {
 
 
 /* ==================================================
-   PASTA + MUM
+   PASTA
 ================================================== */
 
 function pastaGoster() {
@@ -1402,9 +1384,7 @@ function mumUfle() {
     );
 
 
-    konfetiAt(
-        150
-    );
+    konfetiAt(150);
 
 
     setTimeout(
@@ -1414,13 +1394,11 @@ function mumUfle() {
                 "kartAlani"
             ).innerHTML = `
 
-                <div
-                    class="
-                        kart
-                        mythic
-                        final-mesaj
-                    "
-                >
+                <div class="
+                    kart
+                    mythic
+                    final-mesaj
+                ">
 
                     <div class="final-emoji">
                         🎁
@@ -1466,9 +1444,7 @@ function mumUfle() {
             `;
 
 
-            konfetiAt(
-                180
-            );
+            konfetiAt(180);
 
         },
         1500
@@ -1484,6 +1460,7 @@ function mumUfle() {
 function buKadarKisaDegil() {
 
     konfetiAt(60);
+
 
     document.getElementById(
         "kartAlani"
@@ -1580,28 +1557,18 @@ function buKadarKisaDegil() {
 
             <br>
 
-            <button onclick="videoGoster()">
-                🎬 Son kısma geç
+            <button
+                onclick="videoGoster()"
+            >
+                🎬 Son sürprize geç
             </button>
 
         </div>
 
     `;
 
+
     konfetiAt(100);
-}
-
-    konfetiAt(
-        100
-    );
-
-
-    /* Birkaç saniye sonra video */
-
-    setTimeout(
-        videoGoster,
-        5000
-    );
 
 }
 
